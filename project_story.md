@@ -1,0 +1,20 @@
+## Inspiration
+In today's fast-paced world, it's easy to get overwhelmed. We all need a personal hypeman occasionally—someone to tell us we're doing great, help us focus, or guide us through a moment of panic. This inspired the creation of "YTB" (You The Best), a real-time, multimodal AI wellness companion built using Google's new Gemini 2.0 Flash Live API. The goal was to build more than just a chatbot; I wanted a dynamic presence that listens, reacts, and actively supports your mental well-being when you need it most.
+
+## What it does
+YTB is a real-time AI voice companion that hypes you up, helps you relax, and supports your wellness. It uses bidirectional audio streaming to converse naturally with you. What sets YTB apart is its Emotion-Aware AI and Agentic Actions. If you share your camera, Gemini actively reads your facial expressions and body language to personalize its responses. Instead of just suggesting you relax, it actively alters your environment through tool calling: triggering focus or relaxation binaural beats, launching interactive guided breathing exercises, and saving mood logs or journal entries directly to your profile.
+
+## How we built it
+The frontend was crafted using Next.js 16 and React 19, focusing on a sleek, custom CSS dark-mode design system and managing native Web Audio API synthesis for the binaural beats. To securely connect to the Gemini Live API, I built an Express WebSocket proxy running on Google Cloud Run. This proxy handles the complex audio pipeline: receiving and decoding 16kHz PCM from the browser, injecting recent conversation history from Cloud Firestore for context, and forwarding the stream via the `@google/genai` SDK. The entire infrastructure is automated via Cloud Build CI/CD and Terraform.
+
+## Challenges we ran into
+One of the most intense technical hurdles was managing the real-time audio pipeline. Converting Float32 Web Audio context into Int16 PCM, base64 encoding it for the WebSocket, and doing the reverse for playback required precise buffering to avoid audio artifacts. Another significant challenge was designing the tool-calling loop: when Gemini decides to trigger an action (like playing a binaural beat), the server must immediately auto-respond to the tool call so Gemini doesn't pause awkwardly, allowing it to fluidly resume speaking while the browser concurrently executes the visual or auditory changes.
+
+## Accomplishments that we're proud of
+I am incredibly proud of successfully integrating multimodal inputs (voice and vision) with autonomous tool calling to create a truly empathetic agent. Getting the emotion detection to work—where the AI notices you look tired and proactively suggests winding down without you having to ask—feels like a massive step forward in human-computer interaction. Furthermore, ensuring the application is production-ready with Cloud Run, Terraform, and rate-limiting makes the project robust.
+
+## What we learned
+Building YTB showcased the deep complexities and immense potential of real-time AI APIs. I learned how crucial low-latency processing is for maintaining the illusion of a natural conversation. Working closely with Web Audio APIs taught me a lot about browser performance optimization. I also gained valuable experience orchestrating stateful WebSocket connections within stateless serverless environments like Cloud Run using session affinity.
+
+## What's next for YTB
+The next steps for YTB involve expanding its wellness toolkit. I plan to add integrations with wearable health data (like heart rate monitors) so the AI can trigger breathing exercises preemptively before a panic attack fully sets in. I also aim to introduce more diverse, customizable agent personas and expand the binaural beat engine to include full customizable soundscapes based on user preferences.

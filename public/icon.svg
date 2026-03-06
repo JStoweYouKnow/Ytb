@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#5b8fa8"/>
+      <stop offset="100%" stop-color="#7db8c9"/>
+    </linearGradient>
+    <linearGradient id="heart" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#e0e8ed"/>
+    </linearGradient>
+  </defs>
+  <rect width="512" height="512" rx="108" fill="url(#bg)"/>
+  <!-- Sparkle left -->
+  <g transform="translate(148, 148)" fill="#fff" opacity="0.7">
+    <path d="M24 0 L28 20 L48 24 L28 28 L24 48 L20 28 L0 24 L20 20 Z"/>
+  </g>
+  <!-- Heart center -->
+  <path d="M256 380 C180 320 120 268 120 212 C120 176 148 148 184 148 C208 148 232 164 256 196 C280 164 304 148 328 148 C364 148 392 176 392 212 C392 268 332 320 256 380 Z" fill="url(#heart)"/>
+  <!-- Sparkle right -->
+  <g transform="translate(340, 128)" fill="#fff" opacity="0.5">
+    <path d="M16 0 L19 13 L32 16 L19 19 L16 32 L13 19 L0 16 L13 13 Z"/>
+  </g>
+</svg>
