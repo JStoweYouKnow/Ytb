@@ -121,6 +121,10 @@ export class GeminiLiveClient {
 
             this.ws.onclose = () => {
                 console.log('Disconnected from local WebSocket proxy');
+                
+                // Clear the active WebSocket to prevent stop() from attempting to close it again
+                // or triggering multiple onclose events
+                this.ws = null;
                 this.stop(false);
 
                 if (!this.isIntentionallyClosed && this.reconnectAttempts < this.maxReconnectAttempts) {

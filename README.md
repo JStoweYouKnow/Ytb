@@ -22,7 +22,7 @@ YTB is a real-time AI wellness companion powered by Google's Gemini 2.0 Flash Li
 - **Real-time voice + vision conversation** — speak naturally and optionally share your camera; Gemini actively reads your facial expressions and body language to personalize its responses
 - **Emotion-aware AI** — the agent proactively detects if you look tired, stressed, happy, or tense and responds empathetically without being asked (e.g., suggesting relaxation if you're frowning)
 - **AI-triggered binaural beats** — Gemini detects your mood and activates focus (14Hz Alpha/Beta), relax (6Hz Theta), or sleep (3Hz Delta) brainwave entrainment via function calling
-- **5 agent tools + Google Search grounding** — setBinauralPreset, logMood, saveJournalEntry, getWellnessTip, openBreathingExercise, plus real-time Google Search for current wellness research and factual grounding
+- **14 agentic tools + Google Search grounding** — setBinauralPreset, setAmbientSound, logMood, saveJournalEntry, getWellnessTip, openBreathingExercise, getUserContext, getMoodHistory, createWellnessPlan, trackProgress, generateInsights, logEmotionFrame, scheduleCheckIn, generateSessionRecap — plus real-time Google Search for current wellness research and factual grounding
 - **Guided breathing exercises** — box breathing, 4-7-8 technique, and meditation protocols with animated visual progress rings, launchable by the AI via tool calling
 - **Session memory** — conversation context is injected into each live session so Gemini remembers what you've been discussing
 - **Gemini-powered text chat** — text messages are routed to Gemini (not hardcoded responses), with adaptive personality across three hype levels and rate limiting for security
@@ -114,7 +114,7 @@ See [ARCHITECTURE.md](ARCHITECTURE.md) for the full sequence diagram and tool ca
 - [x] Real-time bidirectional audio streaming with Gemini Live API
 - [x] Vision input — 640x480 camera frames at 1fps for near-real-time visual context
 - [x] Active emotion detection — Gemini reads facial expressions, body language, and energy cues to respond proactively
-- [x] 5 Gemini function tools (setBinauralPreset, logMood, saveJournalEntry, getWellnessTip, openBreathingExercise)
+- [x] 14 Gemini function tools (setBinauralPreset, setAmbientSound, logMood, saveJournalEntry, getWellnessTip, openBreathingExercise, getUserContext, getMoodHistory, createWellnessPlan, trackProgress, generateInsights, logEmotionFrame, scheduleCheckIn, generateSessionRecap)
 - [x] Google Search grounding — real-time web search for current wellness research and factual information
 - [x] Binaural beat synthesis (focus 14Hz / relax 6Hz / sleep 3Hz)
 - [x] Guided breathing exercises with SVG ring animation (AI-launchable)
@@ -272,4 +272,3 @@ ashanti/
 ## License
 
 MIT
-# Ytb

@@ -983,6 +983,13 @@ You're not alone. These are free, confidential, and available 24/7. I'll be righ
                 model: 'gemini-3-flash-preview',
                 config: {
                     responseModalities: [Modality.AUDIO],
+                    speechConfig: {
+                        voiceConfig: {
+                            prebuiltVoiceConfig: {
+                                voiceName: 'Aoede',
+                            },
+                        },
+                    },
                     systemInstruction: {
                         parts: [{ text: SYSTEM_PROMPT }]
                     },

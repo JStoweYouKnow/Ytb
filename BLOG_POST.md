@@ -1,6 +1,6 @@
 # Building "YTB": A Real-Time AI Wellness Companion
 
-> *This post was created for the Google Gemini Live Agent Challenge.*
+> *This post was created for the purposes of entering the [Gemini Live Agent Challenge](https://geminiliveagentchallenge.devpost.com/) hackathon. #GeminiLiveAgentChallenge*
 
 In today's fast-paced world, it's easy to get overwhelmed. We all need a personal hypeman occasionally—someone to tell us we're doing great, help us focus, or guide us through a moment of panic. This inspired the creation of **"YTB,"** a real-time, multimodal AI wellness companion built using Google's new **Gemini 2.0 Flash Live API**.
 
