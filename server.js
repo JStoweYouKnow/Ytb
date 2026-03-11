@@ -1091,7 +1091,7 @@ You're not alone. These are free, confidential, and available 24/7. I'll be righ
                 if (parsed.clientContent) {
                     const text = parsed.clientContent.turns?.[0]?.parts?.[0]?.text;
                     if (text) {
-                        session.send({ text });
+                        session.sendClientContent({ turns: text });
 
                         if (firestore) {
                             firestore.saveTranscript(sessionId, {
@@ -1109,8 +1109,8 @@ You're not alone. These are free, confidential, and available 24/7. I'll be righ
                     const contextText = parsed.messages
                         .map((m) => `${m.role === 'user' ? 'User' : 'YTB'}: ${m.content}`)
                         .join('\n');
-                    session.send({
-                        text: `[Previous conversation context for continuity — do not repeat these, just be aware of them]\n${contextText}\n[End of context. The user is now speaking live via audio.]`,
+                    session.sendClientContent({
+                        turns: `[Previous conversation context for continuity — do not repeat these, just be aware of them]\n${contextText}\n[End of context. The user is now speaking live via audio.]`,
                     });
                     return;
                 }
