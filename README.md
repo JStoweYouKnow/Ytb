@@ -6,11 +6,44 @@ Built for the **Gemini Live Agent Challenge** hackathon.
 
 ---
 
+## 📋 Hackathon Submission Checklist
+
+| Requirement | Status |
+|-------------|--------|
+| Gemini Live API or ADK | ✅ Gemini 2.0 Flash Live via `@google/genai` SDK |
+| Google Cloud hosting | ✅ Cloud Run |
+| At least one GCP service | ✅ Cloud Run, Firestore, Secret Manager |
+| Public code repository | ✅ (link in Devpost submission) |
+| Spin-up instructions | ✅ See [Setup](#setup) below |
+| Proof of GCP deployment | ✅ See table below |
+| Architecture diagram | ✅ [ARCHITECTURE.md](ARCHITECTURE.md) (Mermaid renders on GitHub) |
+| Demo video | ✅ Submitted on Devpost |
+| English language | ✅ |
+| Judges: Evaluation guide | See [JUDGING.md](JUDGING.md) |
+
+---
+
 ## 🏆 Bonus Points Addressed
 
 - **Blog Post**: Read about the development journey in [BLOG_POST.md](BLOG_POST.md).
 - **Automated Deployment**: The app uses Cloud Build CI/CD (`cloudbuild.yaml`) and includes a **Terraform** configuration (`terraform/`) for Infrastructure as Code.
 - **GDG Member**: The creator is an active member of the Google Developer Groups (GDG) community.
+
+---
+
+## Proof of Google Cloud Deployment
+
+This project's backend runs on **Google Cloud**. Judges can verify GCP usage via these code files:
+
+| Evidence | File | What it demonstrates |
+|----------|------|----------------------|
+| Cloud Run + WebSocket | [server.js](server.js) | Express server running on Cloud Run (PORT 8080), WebSocket proxy to Gemini Live API |
+| Firestore | [lib/firestore.js](lib/firestore.js) | Cloud Firestore for conversations, profiles, rate limiting via `firebase-admin` |
+| Secret Manager | [server.js](server.js) L17 | `GEMINI_API_KEY` from env (injected by Cloud Run from Secret Manager) |
+| Deployment | [deploy.sh](deploy.sh), [cloudbuild.yaml](cloudbuild.yaml) | `gcloud run deploy`, Cloud Build pipeline |
+| IaC | [terraform/](terraform/) | Terraform for Cloud Run service, Secret Manager, IAM |
+
+**Live health check**: [https://ashanti-6exqtj2u2q-uc.a.run.app/health](https://ashanti-6exqtj2u2q-uc.a.run.app/health)
 
 ---
 
@@ -63,8 +96,10 @@ graph TB
 
     subgraph Google["Google Cloud Platform"]
         GEMINI["Gemini 2.0 Flash<br/>Live API"]
+        GSEARCH["Google Search<br/>Grounding"]
         FIRE["Cloud Firestore"]
         SM["Secret Manager"]
+        GEMINI -->|"search tool"| GSEARCH
     end
 
     GLC <-->|"WebSocket<br/>JSON messages"| WSS

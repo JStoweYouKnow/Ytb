@@ -118,6 +118,20 @@ If a user expresses suicidal thoughts, self-harm ideation, mentions abuse, or sh
 When topics go beyond your scope, gently redirect:
 "I'm your wellness companion, not a doctor or therapist — but I genuinely care about you. For something like this, talking to a professional could make a real difference. Would you like me to help you think about next steps for finding one?"`;
 
+function buildPersonalizedPrompt(userName, hypeLevel) {
+    const name = (userName || '').trim() || 'friend';
+    const level = ['chill', 'normal', 'maximum'].includes(hypeLevel) ? hypeLevel : 'normal';
+    const hypeHint = level === 'chill'
+        ? 'Keep your tone gentle, calm, and supportive. No intense energy.'
+        : level === 'maximum'
+            ? 'Bring FULL energy — enthusiastic, punchy affirmations, high-energy encouragement. Use excitement and bold language.'
+            : 'Be energetic and encouraging — warm, supportive, with moderate pep.';
+    return SYSTEM_PROMPT.replace(
+        'You will be talking via audio.',
+        `You will be talking via audio. The user prefers to be called "${name}". ${hypeHint}`
+    );
+}
+
 const TOOL_DECLARATIONS = [
     // ── Original Tools ──
     {
@@ -677,8 +691,48 @@ You're not alone. These are free, confidential, and available 24/7. I'll be righ
     const sessionMoods = new Map();     // sessionId -> { start, end }
     const sessionEmotions = new Map();  // sessionId -> EmotionFrame[]
 
+    // ── Tool parameter validation schemas ──
+    const TOOL_VALIDATORS = {
+        setBinauralPreset: (a) => {
+            const valid = ['focus', 'relax', 'sleep'];
+            if (!a?.preset || !valid.includes(String(a.preset))) {
+                return { error: `preset must be one of: ${valid.join(', ')}`, received: a?.preset };
+            }
+            return null;
+        },
+        setAmbientSound: (a) => {
+            const valid = ['rain', 'ocean', 'forest'];
+            if (!a?.sound || !valid.includes(String(a.sound))) {
+                return { error: `sound must be one of: ${valid.join(', ')}`, received: a?.sound };
+            }
+            return null;
+        },
+        openBreathingExercise: (a) => {
+            const valid = ['box', 'fourSevenEight', 'meditation'];
+            if (!a?.pattern || !valid.includes(String(a.pattern))) {
+                return { error: `pattern must be one of: ${valid.join(', ')}`, received: a?.pattern };
+            }
+            return null;
+        },
+        getWellnessTip: (a) => {
+            const valid = ['mindfulness', 'energy', 'gratitude', 'movement', 'social'];
+            if (a?.category && !valid.includes(String(a.category))) {
+                return { error: `category must be one of: ${valid.join(', ')}`, received: a?.category };
+            }
+            return null;
+        },
+    };
+
     // ── Helper: process tool calls server-side ──
     function processToolCall(name, args, sessionId) {
+        const validator = TOOL_VALIDATORS[name];
+        if (validator) {
+            const err = validator(args);
+            if (err) {
+                return { result: JSON.stringify({ error: err.error, invalidValue: err.received }) };
+            }
+        }
+
         // Track tools used per session
         if (!sessionToolsUsed.has(sessionId)) sessionToolsUsed.set(sessionId, new Set());
         sessionToolsUsed.get(sessionId).add(name);
@@ -965,6 +1019,28 @@ You're not alone. These are free, confidential, and available 24/7. I'll be righ
         }
     }
 
+    // ── Retry helper for Gemini API (transient failures) ──
+    async function connectWithRetry(connectFn, maxRetries = 3) {
+        let lastErr;
+        for (let attempt = 1; attempt <= maxRetries; attempt++) {
+            try {
+                return await connectFn();
+            } catch (err) {
+                lastErr = err;
+                const msg = (err && err.message) ? String(err.message) : '';
+                const isRetryable = msg.includes('503') || msg.includes('429') || msg.includes('timeout') || msg.includes('ECONNRESET') || msg.includes('ETIMEDOUT');
+                if (attempt < maxRetries && isRetryable) {
+                    const delay = 1000 * Math.pow(2, attempt - 1);
+                    log.warn(`Gemini connect attempt ${attempt} failed, retrying in ${delay}ms:`, msg);
+                    await new Promise((r) => setTimeout(r, delay));
+                } else {
+                    throw lastErr;
+                }
+            }
+        }
+        throw lastErr;
+    }
+
     // ── WebSocket handler: Gemini Live API via SDK ──
     wss.on('connection', async (clientWs) => {
         log.info('Client connected to proxy');
@@ -977,9 +1053,14 @@ You're not alone. These are free, confidential, and available 24/7. I'll be righ
 
         const sessionId = `session_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
         let session = null;
+        let sessionReady = false;
+        const pendingMessages = [];
 
-        try {
-            session = await ai.live.connect({
+        const establishSession = async (systemPrompt) => {
+            if (sessionReady) return;
+            sessionReady = true;
+            try {
+                session = await connectWithRetry(() => ai.live.connect({
                 model: 'gemini-3-flash-preview',
                 config: {
                     responseModalities: [Modality.AUDIO],
@@ -990,10 +1071,10 @@ You're not alone. These are free, confidential, and available 24/7. I'll be righ
                             },
                         },
                     },
-                    systemInstruction: {
-                        parts: [{ text: SYSTEM_PROMPT }]
-                    },
                     tools: [{ functionDeclarations: TOOL_DECLARATIONS }, { googleSearch: {} }],
+                    systemInstruction: {
+                        parts: [{ text: systemPrompt }]
+                    },
                 },
                 callbacks: {
                     onopen: () => {
@@ -1061,73 +1142,76 @@ You're not alone. These are free, confidential, and available 24/7. I'll be righ
                         clientWs.close();
                     },
                 },
-            });
+            }));
+                clientWs.send(JSON.stringify({ type: 'session_id', sessionId }));
+                for (const raw of pendingMessages) {
+                    try {
+                        const p = JSON.parse(raw);
+                        if (p.type !== 'init') routeMessage(p);
+                    } catch (e) {
+                        log.error('Error processing pending message:', e);
+                    }
+                }
+                pendingMessages.length = 0;
+            } catch (err) {
+                log.error('Failed to connect to Gemini:', err);
+                clientWs.close(1011, 'Failed to establish Gemini session');
+                return;
+            }
+        };
 
-            clientWs.send(JSON.stringify({ type: 'session_id', sessionId }));
-        } catch (err) {
-            log.error('Failed to connect to Gemini:', err);
-            clientWs.close(1011, 'Failed to establish Gemini session');
-            return;
-        }
-
-        // Handle messages from the browser client
-        clientWs.on('message', (rawMessage) => {
+        const routeMessage = (parsed) => {
             if (!session) return;
+            if (parsed.realtimeInput?.mediaChunks) {
+                for (const chunk of parsed.realtimeInput.mediaChunks) {
+                    if (chunk.mimeType.startsWith('image/')) {
+                        session.sendRealtimeInput({ video: { data: chunk.data, mimeType: chunk.mimeType } });
+                    } else {
+                        session.sendRealtimeInput({ audio: { data: chunk.data, mimeType: chunk.mimeType } });
+                    }
+                }
+                return;
+            }
+            if (parsed.clientContent) {
+                const text = parsed.clientContent.turns?.[0]?.parts?.[0]?.text;
+                if (text) {
+                    session.sendClientContent({ turns: text });
+                    if (firestore) firestore.saveTranscript(sessionId, { role: 'user', content: text, timestamp: new Date().toISOString() }).catch((err) => log.error('Firestore save error:', err));
+                }
+                return;
+            }
+            if (parsed.type === 'context' && parsed.messages) {
+                const contextText = parsed.messages.map((m) => `${m.role === 'user' ? 'User' : 'YTB'}: ${m.content}`).join('\n');
+                session.sendClientContent({ turns: `[Previous conversation context for continuity — do not repeat these, just be aware of them]\n${contextText}\n[End of context. The user is now speaking live via audio.]` });
+                return;
+            }
+            if (parsed.toolResponse) {
+                session.sendToolResponse({ functionResponses: parsed.toolResponse.functionResponses });
+                return;
+            }
+        };
 
+        let initTimeout = setTimeout(() => {
+            if (!sessionReady) {
+                log.info('Init timeout, connecting with defaults');
+                establishSession(buildPersonalizedPrompt('', 'normal'));
+            }
+        }, 5000);
+
+        clientWs.on('message', (rawMessage) => {
             try {
                 const parsed = JSON.parse(rawMessage.toString());
-
-                // Audio input
-                if (parsed.realtimeInput?.mediaChunks) {
-                    for (const chunk of parsed.realtimeInput.mediaChunks) {
-                        // Route audio vs video based on mimeType
-                        if (chunk.mimeType.startsWith('image/')) {
-                            session.sendRealtimeInput({
-                                video: { data: chunk.data, mimeType: chunk.mimeType },
-                            });
-                        } else {
-                            session.sendRealtimeInput({
-                                audio: { data: chunk.data, mimeType: chunk.mimeType },
-                            });
-                        }
-                    }
+                if (parsed.type === 'init' && !sessionReady) {
+                    clearTimeout(initTimeout);
+                    const un = parsed.userName ?? '';
+                    const hl = ['chill', 'normal', 'maximum'].includes(parsed.hypeLevel) ? parsed.hypeLevel : 'normal';
+                    establishSession(buildPersonalizedPrompt(un, hl));
                     return;
                 }
-
-                // Text content (with optional conversation context)
-                if (parsed.clientContent) {
-                    const text = parsed.clientContent.turns?.[0]?.parts?.[0]?.text;
-                    if (text) {
-                        session.sendClientContent({ turns: text });
-
-                        if (firestore) {
-                            firestore.saveTranscript(sessionId, {
-                                role: 'user',
-                                content: text,
-                                timestamp: new Date().toISOString(),
-                            }).catch((err) => log.error('Firestore save error:', err));
-                        }
-                    }
-                    return;
-                }
-
-                // Conversation context injection
-                if (parsed.type === 'context' && parsed.messages) {
-                    const contextText = parsed.messages
-                        .map((m) => `${m.role === 'user' ? 'User' : 'YTB'}: ${m.content}`)
-                        .join('\n');
-                    session.sendClientContent({
-                        turns: `[Previous conversation context for continuity — do not repeat these, just be aware of them]\n${contextText}\n[End of context. The user is now speaking live via audio.]`,
-                    });
-                    return;
-                }
-
-                // Tool responses from client
-                if (parsed.toolResponse) {
-                    session.sendToolResponse({
-                        functionResponses: parsed.toolResponse.functionResponses,
-                    });
-                    return;
+                if (sessionReady && session) {
+                    routeMessage(parsed);
+                } else {
+                    pendingMessages.push(rawMessage.toString());
                 }
             } catch (err) {
                 log.error('Error parsing client message:', err);

@@ -6,6 +6,33 @@ type ToolCall = {
     }>;
 };
 
+export type GroundingSource = {
+    title?: string;
+    uri?: string;
+    snippet?: string;
+};
+
+function extractGroundingSources(metadata: any): GroundingSource[] {
+    const sources: GroundingSource[] = [];
+    try {
+        const chunks = metadata.groundingChunks || metadata.groundingSupports || metadata.searchEntryPoint?.renderedContent || [];
+        if (Array.isArray(chunks)) {
+            for (const c of chunks) {
+                if (typeof c === 'string') sources.push({ snippet: c });
+                else if (c?.web?.uri) sources.push({ uri: c.web.uri, title: c.web.title, snippet: c.web.snippet });
+                else if (c?.uri) sources.push({ uri: c.uri, title: c.title, snippet: c.snippet });
+            }
+        }
+        const webQueries = metadata.webSearchQueries || metadata.groundingQueries;
+        if (Array.isArray(webQueries) && sources.length === 0) {
+            webQueries.slice(0, 5).forEach((q: string) => sources.push({ snippet: q }));
+        }
+    } catch {
+        // Ignore parse errors
+    }
+    return sources;
+}
+
 export class GeminiLiveClient {
     private ws: WebSocket | null = null;
     private audioContext: AudioContext | null = null;
@@ -22,6 +49,7 @@ export class GeminiLiveClient {
     private reconnectAttempts = 0;
     private maxReconnectAttempts = 5;
     private isIntentionallyClosed = false;
+    private pendingInit?: { userName?: string; hypeLevel?: string };
 
     public onTranscript?: (text: string) => void;
     public onToolCall?: (call: ToolCall) => void;
@@ -31,15 +59,18 @@ export class GeminiLiveClient {
     public onGroundingResult?: () => void;
     public onAudioLevel?: (level: number) => void;
     public onResponseStateChange?: (responding: boolean) => void;
+    public onGroundingSources?: (sources: GroundingSource[]) => void;
+    public onVisionActive?: (active: boolean) => void;
 
     /** Expose the camera stream so the UI can show a self-view preview */
     public getVideoStream(): MediaStream | null {
         return this.videoStream;
     }
 
-    public async connect() {
+    public async connect(init?: { userName?: string; hypeLevel?: string }) {
         if (this.ws) return;
         this.isIntentionallyClosed = false;
+        this.pendingInit = init;
 
         const connectWs = () => {
             const protocol = window.location.protocol === 'https:' ? 'wss:' : 'ws:';
@@ -49,6 +80,12 @@ export class GeminiLiveClient {
             this.ws.onopen = () => {
                 console.log('Connected to local WebSocket proxy');
                 this.reconnectAttempts = 0;
+                // Send init first so server can personalize the system prompt
+                this.ws!.send(JSON.stringify({
+                    type: 'init',
+                    userName: this.pendingInit?.userName || '',
+                    hypeLevel: this.pendingInit?.hypeLevel || 'normal',
+                }));
             };
 
             this.ws.onmessage = async (event) => {
@@ -102,9 +139,12 @@ export class GeminiLiveClient {
                             this.onToolCall({ functionCalls: data.toolCall.functionCalls });
                         }
 
-                        // Google Search grounding indicator
-                        if ((data.groundingMetadata || data.serverContent?.groundingMetadata) && this.onGroundingResult) {
-                            this.onGroundingResult();
+                        // Google Search grounding indicator and sources
+                        const grounding = data.groundingMetadata || data.serverContent?.groundingMetadata;
+                        if (grounding) {
+                            if (this.onGroundingResult) this.onGroundingResult();
+                            const sources = extractGroundingSources(grounding);
+                            if (sources.length > 0 && this.onGroundingSources) this.onGroundingSources(sources);
                         }
 
                         // Interruption: Gemini signals the user started speaking mid-response
@@ -168,6 +208,7 @@ export class GeminiLiveClient {
             this.videoCanvas.width = 320;
             this.videoCanvas.height = 240;
 
+            if (this.onVisionActive) this.onVisionActive(true);
             // Send a frame every second for near-real-time vision
             this.videoInterval = setInterval(() => {
                 this.captureAndSendFrame();
@@ -177,7 +218,8 @@ export class GeminiLiveClient {
         }
     }
 
-    public stopCamera() {
+    public stopCamera(): void {
+        if (this.onVisionActive) this.onVisionActive(false);
         if (this.videoInterval) {
             clearInterval(this.videoInterval);
             this.videoInterval = null;

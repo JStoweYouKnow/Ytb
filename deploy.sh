@@ -5,6 +5,7 @@ set -euo pipefail
 PROJECT_ID="${GCP_PROJECT_ID:-}"
 REGION="${GCP_REGION:-us-central1}"
 SERVICE_NAME="ashanti"
+SECRET_NAME="${GEMINI_SECRET_NAME:-GEMINI_API_KEY}"
 
 if [ -z "$PROJECT_ID" ]; then
     echo "Error: GCP_PROJECT_ID environment variable is required"
@@ -15,7 +16,7 @@ if [ -z "$PROJECT_ID" ]; then
     echo "Prerequisites:"
     echo "  1. gcloud CLI installed and authenticated"
     echo "  2. APIs enabled: run.googleapis.com, cloudbuild.googleapis.com, firestore.googleapis.com, secretmanager.googleapis.com"
-    echo "  3. GEMINI_API_KEY stored in Secret Manager:"
+    echo "  3. GEMINI_API_KEY in Secret Manager (or set GEMINI_SECRET_NAME=your-secret):"
     echo "     echo -n 'your-key' | gcloud secrets create GEMINI_API_KEY --data-file=-"
     exit 1
 fi
@@ -48,11 +49,11 @@ gcloud run deploy "${SERVICE_NAME}" \
     --set-env-vars "NODE_ENV=production"
 
 # ── Step 3: Attach secrets ──
-echo "==> Attaching GEMINI_API_KEY from Secret Manager..."
+echo "==> Attaching GEMINI_API_KEY from Secret Manager (${SECRET_NAME})..."
 gcloud run services update "${SERVICE_NAME}" \
     --project "${PROJECT_ID}" \
     --region "${REGION}" \
-    --set-secrets "GEMINI_API_KEY=GEMINI_API_KEY:latest"
+    --set-secrets "GEMINI_API_KEY=${SECRET_NAME}:latest"
 
 # ── Done ──
 SERVICE_URL=$(gcloud run services describe "${SERVICE_NAME}" \

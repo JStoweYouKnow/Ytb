@@ -908,12 +908,43 @@ p {
   }
 }
 
-/* ── Google Search Grounding Pill ── */
-.search-grounding-pill {
+/* ── Vision Active Indicator ── */
+.vision-active-pill {
   position: absolute;
   top: calc(var(--header-h) + var(--space-sm) + 36px);
   left: var(--space-md);
   z-index: 15;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 10px;
+  background: var(--wellness-soft, rgba(34, 197, 94, 0.12));
+  color: var(--wellness, #22c55e);
+  border: 1px solid var(--wellness, #22c55e);
+  border-radius: var(--radius-full);
+  font-size: 0.6875rem;
+  font-weight: 500;
+  animation: emotionSlideIn 0.3s ease-out;
+  box-shadow: var(--shadow-sm);
+}
+
+/* ── Google Search Grounding Pill + Sources ── */
+.search-grounding-wrap {
+  position: absolute;
+  top: calc(var(--header-h) + var(--space-sm) + 36px);
+  left: var(--space-md);
+  z-index: 15;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+  max-width: min(320px, calc(100vw - 2 * var(--space-md)));
+}
+
+.chat-container.vision-active .search-grounding-wrap {
+  top: calc(var(--header-h) + var(--space-sm) + 36px + 32px);
+}
+
+.search-grounding-pill {
   display: flex;
   align-items: center;
   gap: 6px;
@@ -926,6 +957,64 @@ p {
   font-weight: 500;
   animation: emotionSlideIn 0.3s ease-out;
   box-shadow: var(--shadow-sm);
+  width: fit-content;
+}
+
+.grounding-sources {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.grounding-source-link {
+  font-size: 0.6875rem;
+  color: var(--accent);
+  text-decoration: none;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.grounding-source-link:hover {
+  text-decoration: underline;
+}
+
+.grounding-source-snippet {
+  font-size: 0.625rem;
+  color: var(--text-3);
+  line-height: 1.3;
+}
+
+/* ── Connection Error Banner ── */
+.connection-error-banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-sm);
+  padding: var(--space-sm) var(--space-md);
+  background: var(--danger-soft, rgba(220, 38, 38, 0.15));
+  color: var(--danger, #dc2626);
+  border-bottom: 1px solid var(--danger, #dc2626);
+  font-size: 0.875rem;
+  animation: emotionSlideIn 0.3s ease-out;
+}
+
+.connection-error-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  flex-shrink: 0;
+}
+
+.connection-error-retry {
+  padding: 4px 8px;
+  font-size: 0.8125rem;
+  font-weight: 600;
+}
+
+.connection-error-banner .connection-error-dismiss {
+  flex-shrink: 0;
+  padding: 4px;
 }
 
 /* ================================================================
@@ -1701,13 +1790,41 @@ p {
 }
 
 .welcome-state {
+  position: absolute;
+  inset: 0;
+  top: var(--header-h, 64px);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 1.5rem;
   padding: 3rem;
-  height: 100%;
+  background: var(--bg);
+  z-index: 2;
+  animation: welcomeFadeIn 0.35s ease-out;
+}
+
+.welcome-state-exit {
+  animation: welcomeFadeOut 0.28s ease-in forwards;
+  pointer-events: none;
+}
+
+@keyframes welcomeFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes welcomeFadeOut {
+  to {
+    opacity: 0;
+    transform: translateY(-10px) scale(0.99);
+  }
 }
 
 .welcome-logo {
@@ -1722,9 +1839,10 @@ p {
 .welcome-actions {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   gap: 0.5rem;
   justify-content: center;
-  flex-wrap: wrap;
+  max-width: 320px;
 }
 
 .welcome-pill {
@@ -1950,6 +2068,10 @@ p {
 
 .landing-actions {
   margin-top: var(--space-xl);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-sm);
   animation: heroFadeUp 1s cubic-bezier(0.16, 1, 0.3, 1) 0.4s forwards;
   opacity: 0;
   transform: translateY(20px);
@@ -1972,6 +2094,15 @@ p {
 
 .landing-begin-btn:hover {
   background: var(--accent-hover);
+}
+
+.landing-text-btn {
+  font-size: var(--text-sm);
+  color: var(--text-2);
+}
+
+.landing-text-btn:hover {
+  color: var(--accent);
 }
 
 @keyframes heroFadeUp {
@@ -2253,6 +2384,54 @@ p {
   font-weight: 600;
 }
 
+/* ── Site footer (crisis line + health status for judges) ── */
+.site-footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: var(--space-xs) var(--space-md);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-md);
+  z-index: 5;
+  pointer-events: none;
+  font-size: 0.6875rem;
+  color: var(--text-3);
+  opacity: 0.7;
+}
+
+.site-footer-crisis {
+  flex: 1;
+  min-width: 0;
+  text-align: left;
+}
+
+.site-footer-crisis-link {
+  pointer-events: auto;
+  color: var(--accent);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.site-footer-crisis-link:hover {
+  text-decoration: underline;
+}
+
+.site-footer-status {
+  pointer-events: auto;
+  flex-shrink: 0;
+  color: var(--text-3);
+  opacity: 0.6;
+  text-decoration: none;
+}
+
+.site-footer-status:hover {
+  color: var(--accent);
+  opacity: 1;
+}
+
 /* ================================================================
    Ambient Sound Effects
    ================================================================ */
@@ -2434,6 +2613,21 @@ p {
   border-radius: var(--radius-full);
   font-size: var(--text-base);
   min-width: 200px;
+}
+
+.onb-skip-btn {
+  margin-top: var(--space-sm);
+  background: none;
+  border: none;
+  color: var(--text-3);
+  font-size: var(--text-sm);
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.onb-skip-btn:hover {
+  color: var(--accent);
 }
 
 .onb-mood-grid {

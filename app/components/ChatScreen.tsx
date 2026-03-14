@@ -15,7 +15,7 @@ import AudioOrb from './AudioOrb';
 import BinauralControls from './BinauralControls';
 import AnimatedMessage from './AnimatedMessage';
 import MagneticWrapper from './MagneticWrapper';
-import { GeminiLiveClient } from '../lib/gemini-live-client';
+import { GeminiLiveClient, type GroundingSource } from '../lib/gemini-live-client';
 import { BinauralBeatEngine, AmbientSoundEngine } from '../lib/audio-engine';
 import OnboardingFlow from './OnboardingFlow';
 import SessionRecapComponent from './SessionRecap';
@@ -24,6 +24,27 @@ import {
     saveWellnessPlan, saveSessionRecap, loadWellnessPlan, getPendingCheckIns,
     type SessionRecap, type WellnessPlan, type EmotionFrame, type CheckIn,
 } from '../lib/wellness-store';
+
+/* ── Starter questions (varied prompts for new chats) ── */
+const STARTER_QUESTIONS: string[] = [
+    "How's my day looking?",
+    "I need a pep talk",
+    "Help me wind down",
+    "I'm feeling anxious",
+    "Give me an energy boost",
+    "One thing I can do for myself today?",
+    "I need to vent",
+    "Quick breathing exercise",
+    "I'm overwhelmed—where do I start?",
+    "Help me set an intention",
+    "I can't sleep",
+    "Remind me what I'm good at",
+];
+
+function pickStarters(count = 4): string[] {
+    const shuffled = [...STARTER_QUESTIONS].sort(() => Math.random() - 0.5);
+    return shuffled.slice(0, count);
+}
 
 /* ── Helpers ── */
 function formatTime(ts?: string): string {
@@ -107,10 +128,13 @@ export default function ChatScreen() {
     const [isCameraOn, setIsCameraOn] = useState(false);
     const [detectedEmotion, setDetectedEmotion] = useState<string | null>(null);
     const [showSearchGrounding, setShowSearchGrounding] = useState(false);
+    const [groundingSources, setGroundingSources] = useState<GroundingSource[]>([]);
+    const [visionActive, setVisionActive] = useState(false);
     const [audioLevel, setAudioLevel] = useState<number>(0);
     const [isGeminiResponding, setIsGeminiResponding] = useState<boolean>(false);
     const [activeBinauralPreset, setActiveBinauralPreset] = useState<string | null>(null);
     const [activeAmbientSound, setActiveAmbientSound] = useState<string | null>(null);
+    const [connectionError, setConnectionError] = useState(false);
     const liveClientRef = useRef<GeminiLiveClient | null>(null);
     const audioEngineRef = useRef<BinauralBeatEngine | null>(null);
     const ambientEngineRef = useRef<AmbientSoundEngine | null>(null);
@@ -122,6 +146,8 @@ export default function ChatScreen() {
 
     // ── Onboarding, Recap, Dashboard State ──
     const [showOnboarding, setShowOnboarding] = useState(false);
+    const [welcomeExiting, setWelcomeExiting] = useState(false);
+    const starterQuestions = React.useMemo(() => pickStarters(4), []);
     const [sessionRecap, setSessionRecap] = useState<SessionRecap | null>(null);
     const [activePlan, setActivePlan] = useState<WellnessPlan | null>(null);
     const [pendingCheckIns, setPendingCheckIns] = useState<CheckIn[]>([]);
@@ -132,6 +158,14 @@ export default function ChatScreen() {
     useEffect(() => {
         messagesRef.current = messages;
     }, [messages]);
+
+    // Clear welcome exit state after animation
+    useEffect(() => {
+        if (welcomeExiting) {
+            const t = setTimeout(() => setWelcomeExiting(false), 320);
+            return () => clearTimeout(t);
+        }
+    }, [welcomeExiting]);
 
     // Initialize Audio Engines
     useEffect(() => {
@@ -257,7 +291,10 @@ export default function ChatScreen() {
     const showSearch = useCallback(() => {
         if (searchTimerRef.current) clearTimeout(searchTimerRef.current);
         setShowSearchGrounding(true);
-        searchTimerRef.current = setTimeout(() => setShowSearchGrounding(false), 4000);
+        searchTimerRef.current = setTimeout(() => {
+            setShowSearchGrounding(false);
+            setGroundingSources([]);
+        }, 4000);
     }, []);
 
     // ── Camera toggle (only during live session) ──
@@ -368,6 +405,7 @@ export default function ChatScreen() {
             }
         } else {
             // Start session
+            setConnectionError(false);
             const client = new GeminiLiveClient();
             liveClientRef.current = client;
 
@@ -390,6 +428,8 @@ export default function ChatScreen() {
             client.onDisconnected = () => {
                 setIsLiveSessionActive(false);
                 setIsCameraOn(false);
+                setVisionActive(false);
+                setConnectionError(true);
             };
 
             client.onTranscript = (text) => {
@@ -532,8 +572,17 @@ export default function ChatScreen() {
             client.onGroundingResult = () => {
                 showSearch();
             };
+            client.onGroundingSources = (sources) => {
+                setGroundingSources(sources);
+            };
+            client.onVisionActive = (active) => {
+                setVisionActive(active);
+            };
 
-            await client.connect();
+            await client.connect({
+                userName: settings.userName,
+                hypeLevel: settings.hypeLevel,
+            });
         }
     }, [isLiveSessionActive, handleSend, generateClientRecap]);
 
@@ -596,7 +645,7 @@ export default function ChatScreen() {
     }
 
     return (
-        <div className={`chat-container ${activeBinauralPreset ? `ambient-${activeBinauralPreset}` : ''} ${activeAmbientSound ? `ambient-${activeAmbientSound}` : ''}`}>
+        <div className={`chat-container ${activeBinauralPreset ? `ambient-${activeBinauralPreset}` : ''} ${activeAmbientSound ? `ambient-${activeAmbientSound}` : ''} ${visionActive ? 'vision-active' : ''}`}>
             {/* ── Header ── */}
             <header className={`chat-header ${isLiveSessionActive ? 'live-active' : ''}`}>
                 <div className="chat-header-left">
@@ -660,6 +709,32 @@ export default function ChatScreen() {
                 </div>
             </header>
 
+            {/* ── Connection Error Banner ── */}
+            {connectionError && (
+                <div className="connection-error-banner" role="alert">
+                    <span>Connection failed. Tap the mic to retry.</span>
+                    <div className="connection-error-actions">
+                        <button
+                            className="btn btn-ghost connection-error-retry"
+                            onClick={() => {
+                                setConnectionError(false);
+                                toggleLiveSession();
+                            }}
+                            aria-label="Retry connection"
+                        >
+                            Retry
+                        </button>
+                        <button
+                            className="btn btn-ghost connection-error-dismiss"
+                            onClick={() => setConnectionError(false)}
+                            aria-label="Dismiss"
+                        >
+                            <X size={18} />
+                        </button>
+                    </div>
+                </div>
+            )}
+
             {/* ── Camera Self-View Preview ── */}
             {isCameraOn && (
                 <div className={`camera-preview-wrap ${detectedEmotion ? getEmotionClass(detectedEmotion) : ''}`}>
@@ -684,11 +759,34 @@ export default function ChatScreen() {
                 </div>
             )}
 
-            {/* ── Google Search Grounding Indicator ── */}
+            {/* ── Vision active indicator ── */}
+            {visionActive && (
+                <div className="vision-active-pill">
+                    <Eye size={12} />
+                    <span>Reading your expressions</span>
+                </div>
+            )}
+
+            {/* ── Google Search Grounding Indicator + Sources ── */}
             {showSearchGrounding && (
-                <div className="search-grounding-pill">
-                    <Globe size={12} />
-                    <span>Searched the web</span>
+                <div className="search-grounding-wrap">
+                    <div className="search-grounding-pill">
+                        <Globe size={12} />
+                        <span>Searched the web</span>
+                    </div>
+                    {groundingSources.length > 0 && (
+                        <div className="grounding-sources">
+                            {groundingSources.slice(0, 5).map((s, i) => (
+                                s.uri ? (
+                                    <a key={i} href={s.uri} target="_blank" rel="noopener noreferrer" className="grounding-source-link">
+                                        {s.title || s.snippet?.slice(0, 50) || 'Source'} ↗
+                                    </a>
+                                ) : s.snippet ? (
+                                    <span key={i} className="grounding-source-snippet">{s.snippet.slice(0, 80)}{s.snippet.length > 80 ? '…' : ''}</span>
+                                ) : null
+                            ))}
+                        </div>
+                    )}
                 </div>
             )}
 
@@ -726,21 +824,24 @@ export default function ChatScreen() {
 
             {/* ── Welcome State ── */}
             {
-                !isLiveSessionActive && messages.length <= 1 && (
-                    <div className="welcome-state">
+                !isLiveSessionActive && (messages.length <= 1 || welcomeExiting) && (
+                    <div className={`welcome-state ${welcomeExiting ? 'welcome-state-exit' : ''}`}>
                         <BrandLogo size={48} className="welcome-logo" />
-                        <p className="welcome-prompt">Tap the mic to start talking</p>
+                        <p className="welcome-prompt">Tap the mic to start talking, or pick a prompt below</p>
                         <div className="welcome-actions">
-                            <MagneticWrapper strength={0.25}>
-                                <button className="welcome-pill" onClick={() => handleSend("How's my day looking?")}>
-                                    How's my day looking?
-                                </button>
-                            </MagneticWrapper>
-                            <MagneticWrapper strength={0.25}>
-                                <button className="welcome-pill" onClick={() => handleSend("I need a pep talk")}>
-                                    I need a pep talk
-                                </button>
-                            </MagneticWrapper>
+                            {starterQuestions.map((q) => (
+                                <MagneticWrapper key={q} strength={0.25}>
+                                    <button
+                                        className="welcome-pill"
+                                        onClick={() => {
+                                            setWelcomeExiting(true);
+                                            handleSend(q);
+                                        }}
+                                    >
+                                        {q}
+                                    </button>
+                                </MagneticWrapper>
+                            ))}
                         </div>
                     </div>
                 )

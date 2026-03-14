@@ -39,6 +39,12 @@ export default function Home() {
               Begin Session
             </button>
           </MagneticWrapper>
+          <button
+            className="btn btn-ghost landing-text-btn"
+            onClick={() => router.push('/chat')}
+          >
+            Try text chat
+          </button>
         </div>
 
         <p className="landing-disclaimer">

@@ -86,6 +86,19 @@ export default function OnboardingFlow({ onComplete }: OnboardingFlowProps) {
         onComplete(settings);
     };
 
+    const handleSkip = () => {
+        const settings: Settings = { userName: '', hypeLevel: 'normal', theme: 'system' };
+        saveSettings(settings);
+        saveProfile({
+            conversationCount: 0,
+            topicsDiscussed: [],
+            lastVisit: new Date().toISOString(),
+            firstVisit: new Date().toISOString(),
+        });
+        setOnboardingComplete();
+        onComplete(settings);
+    };
+
     const totalSteps = 5;
 
     const steps = [
@@ -102,6 +115,9 @@ export default function OnboardingFlow({ onComplete }: OnboardingFlowProps) {
             </div>
             <button className="btn btn-primary onb-next-btn" onClick={() => goToStep(1)}>
                 Get Started <ArrowRight size={16} />
+            </button>
+            <button className="onb-skip-btn" onClick={handleSkip} type="button">
+                Already set up? Skip
             </button>
         </div>,
 
