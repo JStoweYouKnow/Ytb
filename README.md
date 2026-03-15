@@ -1,5 +1,7 @@
 # YTB — AI-Powered Personal Hypeman
 
+[![Production Verification](https://github.com/JStoweYouKnow/Ytb/actions/workflows/production-verification.yml/badge.svg)](https://github.com/JStoweYouKnow/Ytb/actions/workflows/production-verification.yml)
+
 > Your real-time AI voice companion that hypes you up, helps you relax, and supports your wellness through binaural beats and guided breathing exercises.
 
 Built for the **Gemini Live Agent Challenge** hackathon.
@@ -10,7 +12,7 @@ Built for the **Gemini Live Agent Challenge** hackathon.
 
 | Requirement | Status |
 |-------------|--------|
-| Gemini Live API or ADK | ✅ Gemini 2.0 Flash Live via `@google/genai` SDK |
+| Gemini Live API or ADK | ✅ Gemini Live model `gemini-3-flash-preview` via `@google/genai` SDK |
 | Google Cloud hosting | ✅ Cloud Run |
 | At least one GCP service | ✅ Cloud Run, Firestore, Secret Manager |
 | Public code repository | ✅ (link in Devpost submission) |
@@ -45,12 +47,45 @@ This project's backend runs on **Google Cloud**. Judges can verify GCP usage via
 
 **Live health check**: [https://ashanti-6exqtj2u2q-uc.a.run.app/health](https://ashanti-6exqtj2u2q-uc.a.run.app/health)
 
+### Production Live Path Verification (Runtime Proof)
+
+To provide runtime proof of the actual Live Agent path (not just static docs), run:
+
+```bash
+npm run verify:production
+```
+
+Or test another deployment URL:
+
+```bash
+TARGET_URL=https://your-service-url npm run verify:production
+```
+
+Saved example output is included in [PRODUCTION_VERIFICATION.md](PRODUCTION_VERIFICATION.md).
+
+CI automation is also available via GitHub Actions in `.github/workflows/production-verification.yml`:
+- Manual run (`workflow_dispatch`) with optional `target_url`
+- Daily scheduled run
+- JSON evidence uploaded as a workflow artifact (`production-verification-report`)
+
+The latest successful run can auto-refresh [PRODUCTION_VERIFICATION.md](PRODUCTION_VERIFICATION.md) via `.github/workflows/update-production-verification-report.yml`.
+
+What this verifies end-to-end:
+
+- `/health` is live and reachable
+- `wss://.../ws` accepts a connection
+- Gemini Live session opens (`connected_to_gemini` + `session_id`)
+- Multimodal input is accepted in one run (`image/jpeg` + `audio/pcm;rate=16000` + text)
+- The script attempts to observe a live model event (`serverContent` and/or `toolCall`) and reports whether the session closed before one was emitted
+- When `serverContent` is observed, the report includes a `serverContentSample` preview (sanitized text/audio/tool metadata)
+- If no `serverContent` appears in the main check, it runs a focused `liveOutputProbe` (3 text-only retries) to increase evidence capture odds
+
 ---
 
 ## What It Does
 
 **"I need a pep talk!"**
-YTB is a real-time AI wellness companion powered by Google's Gemini 2.0 Flash Live API. Talk to it like a friend — it listens, responds with voice, and adapts the environment around you.
+YTB is a real-time AI wellness companion powered by Google's Gemini Live API using `gemini-3-flash-preview`. Talk to it like a friend — it listens, responds with voice, and adapts the environment around you.
 
 - **Real-time voice + vision conversation** — speak naturally and optionally share your camera; Gemini actively reads your facial expressions and body language to personalize its responses
 - **Emotion-aware AI** — the agent proactively detects if you look tired, stressed, happy, or tense and responds empathetically without being asked (e.g., suggesting relaxation if you're frowning)
@@ -95,7 +130,7 @@ graph TB
     end
 
     subgraph Google["Google Cloud Platform"]
-        GEMINI["Gemini 2.0 Flash<br/>Live API"]
+        GEMINI["Gemini 3 Flash Preview<br/>Live API"]
         GSEARCH["Google Search<br/>Grounding"]
         FIRE["Cloud Firestore"]
         SM["Secret Manager"]
@@ -121,7 +156,7 @@ See [ARCHITECTURE.md](ARCHITECTURE.md) for the full sequence diagram and tool ca
 | Layer | Technology |
 |-------|------------|
 | Frontend | Next.js 16, React 19, TypeScript |
-| AI | Gemini 2.0 Flash Live API via `@google/genai` SDK |
+| AI | Gemini Live API (`gemini-3-flash-preview`) via `@google/genai` SDK |
 | Audio | Web Audio API (ScriptProcessorNode, binaural beat synthesis) |
 | Backend | Express 5 + custom WebSocket proxy (Node.js 20) |
 | Database | Google Cloud Firestore |
@@ -187,6 +222,8 @@ Create a `.env` file in the project root:
 
 ```env
 GEMINI_API_KEY=your-gemini-api-key
+GEMINI_TEXT_MODEL=gemini-3-flash-preview
+GEMINI_LIVE_MODEL=gemini-3-flash-preview
 
 # For local Firestore access (optional):
 GOOGLE_APPLICATION_CREDENTIALS=path/to/service-account.json
@@ -295,7 +332,7 @@ ashanti/
 | Service | Purpose |
 |---------|---------|
 | **Cloud Run** | Hosts the containerized Next.js + Express + WebSocket application |
-| **Gemini 2.0 Flash (Live API)** | Real-time voice AI agent via `@google/genai` SDK |
+| **Gemini 3 Flash Preview (Live API)** | Real-time voice AI agent via `@google/genai` SDK |
 | **Google Search (Grounding)** | Real-time web search tool for current wellness information and factual grounding |
 | **Cloud Firestore** | Persistent storage for conversation transcripts and user profiles |
 | **Secret Manager** | Secure storage for the `GEMINI_API_KEY` |

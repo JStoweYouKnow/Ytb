@@ -2,7 +2,7 @@
 
 > *This post was created for the purposes of entering the [Gemini Live Agent Challenge](https://geminiliveagentchallenge.devpost.com/) hackathon. #GeminiLiveAgentChallenge*
 
-In today's fast-paced world, it's easy to get overwhelmed. We all need a personal hypeman occasionally—someone to tell us we're doing great, help us focus, or guide us through a moment of panic. This inspired the creation of **"YTB,"** a real-time, multimodal AI wellness companion built using Google's new **Gemini 2.0 Flash Live API**.
+In today's fast-paced world, it's easy to get overwhelmed. We all need a personal hypeman occasionally—someone to tell us we're doing great, help us focus, or guide us through a moment of panic. This inspired the creation of **"YTB,"** a real-time, multimodal AI wellness companion built using Google's **Gemini Live API** with the `gemini-3-flash-preview` model.
 
 "YTB" isn't just a chatbot; it's a dynamic presence that listens to you, sees you (if you choose to share your camera), and reacts in real-time. Whether you need an energetic pep talk or a calming meditation, the app adapts its tone and environment to support your current state of mind.
 

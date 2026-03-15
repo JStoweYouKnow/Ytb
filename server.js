@@ -16,6 +16,8 @@ const port = process.env.PORT || 3000;
 // Initialize the Google GenAI SDK
 const geminiApiKey = process.env.GEMINI_API_KEY;
 const ai = geminiApiKey ? new GoogleGenAI({ apiKey: geminiApiKey }) : null;
+const GEMINI_TEXT_MODEL = process.env.GEMINI_TEXT_MODEL || 'gemini-3-flash-preview';
+const GEMINI_LIVE_MODEL = process.env.GEMINI_LIVE_MODEL || 'gemini-3-flash-preview';
 
 const SYSTEM_PROMPT = `You are YTB — an AGENTIC AI wellness companion, personal hypeman, and supportive coach. You are NOT a therapist, counselor, or medical professional. You are a caring, thoughtful acquaintance and motivational partner. You will be talking via audio. Keep your responses short, conversational, warm, and grounded.
 
@@ -488,6 +490,10 @@ app.prepare().then(() => {
             status: 'healthy',
             timestamp: new Date().toISOString(),
             uptime: process.uptime(),
+            models: {
+                text: GEMINI_TEXT_MODEL,
+                live: GEMINI_LIVE_MODEL,
+            },
         });
     });
 
@@ -665,7 +671,7 @@ You're not alone. These are free, confidential, and available 24/7. I'll be righ
             );
 
             const result = await ai.models.generateContent({
-                model: 'gemini-3-flash-preview',
+                model: GEMINI_TEXT_MODEL,
                 contents,
                 config: {
                     systemInstruction: personalizedPrompt,
@@ -1061,7 +1067,7 @@ You're not alone. These are free, confidential, and available 24/7. I'll be righ
             sessionReady = true;
             try {
                 session = await connectWithRetry(() => ai.live.connect({
-                model: 'gemini-3-flash-preview',
+                model: GEMINI_LIVE_MODEL,
                 config: {
                     responseModalities: [Modality.AUDIO],
                     speechConfig: {
@@ -1175,14 +1181,26 @@ You're not alone. These are free, confidential, and available 24/7. I'll be righ
             if (parsed.clientContent) {
                 const text = parsed.clientContent.turns?.[0]?.parts?.[0]?.text;
                 if (text) {
-                    session.sendClientContent({ turns: text });
+                    // Forward structured turns to preserve Live API shape.
+                    session.sendClientContent(parsed.clientContent);
                     if (firestore) firestore.saveTranscript(sessionId, { role: 'user', content: text, timestamp: new Date().toISOString() }).catch((err) => log.error('Firestore save error:', err));
                 }
                 return;
             }
             if (parsed.type === 'context' && parsed.messages) {
                 const contextText = parsed.messages.map((m) => `${m.role === 'user' ? 'User' : 'YTB'}: ${m.content}`).join('\n');
-                session.sendClientContent({ turns: `[Previous conversation context for continuity — do not repeat these, just be aware of them]\n${contextText}\n[End of context. The user is now speaking live via audio.]` });
+                session.sendClientContent({
+                    turns: [
+                        {
+                            role: 'user',
+                            parts: [
+                                {
+                                    text: `[Previous conversation context for continuity — do not repeat these, just be aware of them]\n${contextText}\n[End of context. The user is now speaking live via audio.]`
+                                }
+                            ]
+                        }
+                    ]
+                });
                 return;
             }
             if (parsed.toolResponse) {

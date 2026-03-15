@@ -12,8 +12,34 @@ This document helps judges quickly verify the submission against hackathon crite
 |----------|-----|
 | **Production Demo** | https://ashanti-6exqtj2u2q-uc.a.run.app |
 | **Health Check** | https://ashanti-6exqtj2u2q-uc.a.run.app/health |
+| **Live Runtime Smoke Test** | `npm run verify:production` |
+| **Saved Runtime Report** | [PRODUCTION_VERIFICATION.md](PRODUCTION_VERIFICATION.md) |
+| **CI Verification Workflow** | `.github/workflows/production-verification.yml` (manual + daily run, uploads JSON artifact) |
+| **CI Auto-Update Report** | `.github/workflows/update-production-verification-report.yml` (writes latest successful artifact into `PRODUCTION_VERIFICATION.md`) |
 | **Architecture Diagram** | See [ARCHITECTURE.md](ARCHITECTURE.md) (Mermaid diagrams render on GitHub) |
 | **GCP Proof** | [README.md § Proof of Google Cloud Deployment](README.md#proof-of-google-cloud-deployment) |
+
+---
+
+## Runtime Verification (1 minute)
+
+Run this in the repo root:
+
+```bash
+npm run verify:production
+```
+
+This command validates the real production live path in one pass:
+- health endpoint is reachable;
+- websocket upgrades at `/ws`;
+- Gemini live session is established;
+- multimodal input (image + audio + text) is accepted; and
+- the script reports whether a live model event was observed before the session closed.
+
+If emitted, the JSON includes `serverContentSample` with a compact preview of returned text/audio/tool metadata.
+If not emitted in the main check, the verifier runs `liveOutputProbe` with 3 text-only retries and records attempt-level evidence.
+
+If the command exits `0`, the live infrastructure path is functioning end-to-end.
 
 ---
 

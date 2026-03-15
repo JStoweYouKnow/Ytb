@@ -32,7 +32,7 @@ graph TB
     end
 
     subgraph Google["Google Cloud Platform"]
-        GEMINI["Gemini 2.0 Flash<br/>Live API"]
+        GEMINI["Gemini 3 Flash Preview<br/>Live API"]
         GSEARCH["Google Search<br/>Grounding"]
         FIRE["Cloud Firestore"]
         SM["Secret Manager"]

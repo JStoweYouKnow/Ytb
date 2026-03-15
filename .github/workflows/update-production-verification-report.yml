@@ -1,0 +1,124 @@
+name: Update Production Verification Report
+
+on:
+  workflow_run:
+    workflows: ["Production Verification"]
+    types: [completed]
+
+permissions:
+  actions: read
+  contents: write
+
+jobs:
+  update-report:
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout source branch
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.workflow_run.head_branch }}
+
+      - name: Find verification artifact
+        id: artifact
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const run_id = context.payload.workflow_run.id;
+            const { owner, repo } = context.repo;
+            const artifactsResp = await github.rest.actions.listWorkflowRunArtifacts({
+              owner,
+              repo,
+              run_id
+            });
+            const artifact = artifactsResp.data.artifacts.find(
+              (a) => a.name === "production-verification-report"
+            );
+            if (!artifact) {
+              core.setFailed("production-verification-report artifact not found");
+              return;
+            }
+            core.setOutput("artifact_id", String(artifact.id));
+            core.setOutput("run_id", String(run_id));
+            core.setOutput("run_url", context.payload.workflow_run.html_url);
+
+      - name: Download artifact zip
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p artifacts
+          gh api "repos/${{ github.repository }}/actions/artifacts/${{ steps.artifact.outputs.artifact_id }}/zip" > artifacts/report.zip
+          unzip -o artifacts/report.zip -d artifacts/extracted
+
+      - name: Render PRODUCTION_VERIFICATION.md from artifact
+        env:
+          RUN_URL: ${{ steps.artifact.outputs.run_url }}
+          RUN_ID: ${{ steps.artifact.outputs.run_id }}
+        run: |
+          node <<'EOF'
+          const fs = require('fs');
+          const path = require('path');
+
+          const jsonPath = path.join(process.cwd(), 'artifacts', 'extracted', 'production-verification.json');
+          if (!fs.existsSync(jsonPath)) {
+            throw new Error(`Missing artifact payload at ${jsonPath}`);
+          }
+          const raw = fs.readFileSync(jsonPath, 'utf8').trim();
+          let parsed;
+          try {
+            parsed = JSON.parse(raw);
+          } catch {
+            throw new Error('Artifact is not valid JSON');
+          }
+
+          const checkedAt = parsed.checkedAt || new Date().toISOString();
+          const runUrl = process.env.RUN_URL || '';
+          const runId = process.env.RUN_ID || '';
+
+          const md = [
+            '# Production Verification Report',
+            '',
+            'This file is auto-generated from the latest successful **Production Verification** workflow run.',
+            '',
+            '## Source',
+            '',
+            `- Workflow run ID: \`${runId}\``,
+            runUrl ? `- Workflow run URL: ${runUrl}` : '- Workflow run URL: (unavailable)',
+            `- Generated at: \`${new Date().toISOString()}\``,
+            '',
+            '## Command',
+            '',
+            '```bash',
+            'npm run verify:production',
+            '```',
+            '',
+            `## Latest Result (${checkedAt})`,
+            '',
+            '```json',
+            JSON.stringify(parsed, null, 2),
+            '```',
+            '',
+            '## Interpretation',
+            '',
+            '- `result: pass` means the production health check and live websocket/Gemini handshake checks passed for that run.',
+            '- If the report indicates no model content before close, it still proves production live-path connectivity and multimodal ingress dispatch.',
+            ''
+          ].join('\n');
+
+          fs.writeFileSync(path.join(process.cwd(), 'PRODUCTION_VERIFICATION.md'), md, 'utf8');
+          EOF
+
+      - name: Commit updated report
+        env:
+          BRANCH_NAME: ${{ github.event.workflow_run.head_branch }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add PRODUCTION_VERIFICATION.md
+          if git diff --cached --quiet; then
+            echo "No report changes to commit."
+            exit 0
+          fi
+          git commit -m "ci: refresh production verification report"
+          git push origin "HEAD:${BRANCH_NAME}"
