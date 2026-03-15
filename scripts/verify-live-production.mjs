@@ -1,5 +1,7 @@
 #!/usr/bin/env node
 
+import WebSocket from 'ws';
+
 /**
  * Production smoke test for the live Gemini websocket path.
  *
