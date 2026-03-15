@@ -27,6 +27,17 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Warm up production (retry health check)
+        env:
+          TARGET_URL: ${{ github.event.inputs.target_url || 'https://ashanti-6exqtj2u2q-uc.a.run.app' }}
+        run: |
+          for i in 1 2 3 4 5; do
+            if curl -sf --max-time 15 "${TARGET_URL}/health" > /dev/null; then echo "Health OK"; exit 0; fi
+            echo "Attempt $i failed, retrying in 5s..."
+            sleep 5
+          done
+          echo "Warm-up failed after 5 attempts; continuing to verification anyway"
+
       - name: Run production verification
         id: verify
         env:
@@ -34,7 +45,14 @@ jobs:
         run: |
           mkdir -p artifacts
           echo "Verifying TARGET_URL=${TARGET_URL}"
-          node scripts/verify-live-production.mjs "${TARGET_URL}" > artifacts/production-verification.json 2>&1
+          node scripts/verify-live-production.mjs "${TARGET_URL}" > artifacts/production-verification.json 2>&1 || true
+          echo "--- Verification output ---"
+          cat artifacts/production-verification.json || true
+
+      - name: Fail if verification did not pass
+        run: |
+          RESULT=$(jq -r '.result // "fail"' artifacts/production-verification.json 2>/dev/null) || RESULT="fail"
+          if [ "$RESULT" != "pass" ]; then echo "Verification failed: result=$RESULT"; exit 1; fi
 
       - name: Upload verification artifact
         if: always()
