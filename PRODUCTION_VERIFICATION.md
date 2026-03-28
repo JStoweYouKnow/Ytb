@@ -4,9 +4,9 @@ This file is auto-generated from the latest successful **Production Verification
 
 ## Source
 
-- Workflow run ID: `23648453066`
-- Workflow run URL: https://github.com/JStoweYouKnow/Ytb/actions/runs/23648453066
-- Generated at: `2026-03-27T13:27:59.537Z`
+- Workflow run ID: `23686095248`
+- Workflow run URL: https://github.com/JStoweYouKnow/Ytb/actions/runs/23686095248
+- Generated at: `2026-03-28T13:21:12.939Z`
 
 ## Command
 
@@ -14,20 +14,20 @@ This file is auto-generated from the latest successful **Production Verification
 npm run verify:production
 ```
 
-## Latest Result (2026-03-27T13:27:42.222Z)
+## Latest Result (2026-03-28T13:20:58.551Z)
 
 ```json
 {
-  "checkedAt": "2026-03-27T13:27:42.222Z",
+  "checkedAt": "2026-03-28T13:20:58.551Z",
   "targetUrl": "https://ashanti-6exqtj2u2q-uc.a.run.app",
   "stage": {
     "health": {
       "result": "pass",
-      "elapsedMs": 118,
+      "elapsedMs": 131,
       "payload": {
         "status": "healthy",
-        "timestamp": "2026-03-27T13:27:42.319Z",
-        "uptime": 2.658623453,
+        "timestamp": "2026-03-28T13:20:58.653Z",
+        "uptime": 2.44101559,
         "models": {
           "text": "gemini-3-flash-preview",
           "live": "gemini-2.5-flash-native-audio-preview-12-2025"
@@ -38,7 +38,7 @@ npm run verify:production
       "wsUrl": "wss://ashanti-6exqtj2u2q-uc.a.run.app/ws",
       "opened": true,
       "connectedToGemini": true,
-      "sessionId": "session_1774618062390_143xmhaw6",
+      "sessionId": "session_1774704058753_0rutwd6ez",
       "sentImageChunk": true,
       "sentAudioChunk": true,
       "sentTextTurn": true,
@@ -47,31 +47,31 @@ npm run verify:production
       "sawAudioChunk": false,
       "sawTextPart": false,
       "serverContentSample": {
-        "capturedAt": "2026-03-27T13:27:46.021Z",
+        "capturedAt": "2026-03-28T13:21:02.346Z",
         "turnComplete": false,
         "interrupted": false,
-        "textPreview": "**Analyzing System Commands**\n\nI've zeroed in on the core request: a specific token response, \"LIVE_OK\". This is clearly a test or verification prompt. My focus is on the instruction to formulate the exact answer, \"LIVE_OK\", to ensure correct execution.",
+        "textPreview": "**Verify System Status**\n\nI've directly addressed the system-level verification request. I correctly interpreted it as distinct from a regular interaction. I bypassed the standard setup and generated the required, exact response. My output is now LIVE_OK.",
         "textPartCount": 1,
         "audioMimeTypes": [],
         "functionCalls": [],
         "totalParts": 1
       },
       "errors": [],
-      "elapsedMs": 919,
+      "elapsedMs": 939,
       "result": "pass",
       "message": "Gemini live handshake succeeded and multimodal payload dispatch completed (no model event observed before close)"
     },
     "liveOutputProbe": {
       "wsUrl": "wss://ashanti-6exqtj2u2q-uc.a.run.app/ws",
       "attempts": 3,
-      "elapsedMs": 1559,
+      "elapsedMs": 1523,
       "result": "pass",
       "message": "Live output sample captured successfully",
       "sample": {
-        "capturedAt": "2026-03-27T13:27:46.021Z",
+        "capturedAt": "2026-03-28T13:21:02.346Z",
         "turnComplete": false,
         "interrupted": false,
-        "textPreview": "**Analyzing System Commands**\n\nI've zeroed in on the core request: a specific token response, \"LIVE_OK\". This is clearly a test or verification prompt. My focus is on the instruction to formulate the exact answer, \"LIVE_OK\", to ensure correct execution.",
+        "textPreview": "**Verify System Status**\n\nI've directly addressed the system-level verification request. I correctly interpreted it as distinct from a regular interaction. I bypassed the standard setup and generated the required, exact response. My output is now LIVE_OK.",
         "textPartCount": 1,
         "audioMimeTypes": [],
         "functionCalls": [],
@@ -82,20 +82,20 @@ npm run verify:production
           "attempt": 1,
           "wsUrl": "wss://ashanti-6exqtj2u2q-uc.a.run.app/ws",
           "connectedToGemini": true,
-          "sessionId": "session_1774618064516_57pz29gjh",
+          "sessionId": "session_1774704060872_gj5hyx20d",
           "sawServerContent": true,
           "sawToolCall": false,
           "serverContentSample": {
-            "capturedAt": "2026-03-27T13:27:46.021Z",
+            "capturedAt": "2026-03-28T13:21:02.346Z",
             "turnComplete": false,
             "interrupted": false,
-            "textPreview": "**Analyzing System Commands**\n\nI've zeroed in on the core request: a specific token response, \"LIVE_OK\". This is clearly a test or verification prompt. My focus is on the instruction to formulate the exact answer, \"LIVE_OK\", to ensure correct execution.",
+            "textPreview": "**Verify System Status**\n\nI've directly addressed the system-level verification request. I correctly interpreted it as distinct from a regular interaction. I bypassed the standard setup and generated the required, exact response. My output is now LIVE_OK.",
             "textPartCount": 1,
             "audioMimeTypes": [],
             "functionCalls": [],
             "totalParts": 1
           },
-          "elapsedMs": 1559,
+          "elapsedMs": 1522,
           "result": "pass",
           "message": "Captured live serverContent sample"
         }
