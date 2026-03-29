@@ -4,9 +4,9 @@ This file is auto-generated from the latest successful **Production Verification
 
 ## Source
 
-- Workflow run ID: `23686095248`
-- Workflow run URL: https://github.com/JStoweYouKnow/Ytb/actions/runs/23686095248
-- Generated at: `2026-03-28T13:21:12.939Z`
+- Workflow run ID: `23709995021`
+- Workflow run URL: https://github.com/JStoweYouKnow/Ytb/actions/runs/23709995021
+- Generated at: `2026-03-29T13:21:57.156Z`
 
 ## Command
 
@@ -14,20 +14,20 @@ This file is auto-generated from the latest successful **Production Verification
 npm run verify:production
 ```
 
-## Latest Result (2026-03-28T13:20:58.551Z)
+## Latest Result (2026-03-29T13:21:42.974Z)
 
 ```json
 {
-  "checkedAt": "2026-03-28T13:20:58.551Z",
+  "checkedAt": "2026-03-29T13:21:42.974Z",
   "targetUrl": "https://ashanti-6exqtj2u2q-uc.a.run.app",
   "stage": {
     "health": {
       "result": "pass",
-      "elapsedMs": 131,
+      "elapsedMs": 117,
       "payload": {
         "status": "healthy",
-        "timestamp": "2026-03-28T13:20:58.653Z",
-        "uptime": 2.44101559,
+        "timestamp": "2026-03-29T13:21:43.066Z",
+        "uptime": 2.12297053,
         "models": {
           "text": "gemini-3-flash-preview",
           "live": "gemini-2.5-flash-native-audio-preview-12-2025"
@@ -38,7 +38,7 @@ npm run verify:production
       "wsUrl": "wss://ashanti-6exqtj2u2q-uc.a.run.app/ws",
       "opened": true,
       "connectedToGemini": true,
-      "sessionId": "session_1774704058753_0rutwd6ez",
+      "sessionId": "session_1774790503141_uovrjkd2o",
       "sentImageChunk": true,
       "sentAudioChunk": true,
       "sentTextTurn": true,
@@ -47,31 +47,31 @@ npm run verify:production
       "sawAudioChunk": false,
       "sawTextPart": false,
       "serverContentSample": {
-        "capturedAt": "2026-03-28T13:21:02.346Z",
+        "capturedAt": "2026-03-29T13:21:46.727Z",
         "turnComplete": false,
         "interrupted": false,
-        "textPreview": "**Verify System Status**\n\nI've directly addressed the system-level verification request. I correctly interpreted it as distinct from a regular interaction. I bypassed the standard setup and generated the required, exact response. My output is now LIVE_OK.",
+        "textPreview": "**Confirming System Verification**\n\nI recognize this is a direct system verification, superseding typical conversational flow. The instruction is unambiguous: deliver a short sentence containing \"LIVE_OK.\" No external context is needed; it's a constrained, focused task.",
         "textPartCount": 1,
         "audioMimeTypes": [],
         "functionCalls": [],
         "totalParts": 1
       },
       "errors": [],
-      "elapsedMs": 939,
+      "elapsedMs": 900,
       "result": "pass",
       "message": "Gemini live handshake succeeded and multimodal payload dispatch completed (no model event observed before close)"
     },
     "liveOutputProbe": {
       "wsUrl": "wss://ashanti-6exqtj2u2q-uc.a.run.app/ws",
       "attempts": 3,
-      "elapsedMs": 1523,
+      "elapsedMs": 1534,
       "result": "pass",
       "message": "Live output sample captured successfully",
       "sample": {
-        "capturedAt": "2026-03-28T13:21:02.346Z",
+        "capturedAt": "2026-03-29T13:21:46.727Z",
         "turnComplete": false,
         "interrupted": false,
-        "textPreview": "**Verify System Status**\n\nI've directly addressed the system-level verification request. I correctly interpreted it as distinct from a regular interaction. I bypassed the standard setup and generated the required, exact response. My output is now LIVE_OK.",
+        "textPreview": "**Confirming System Verification**\n\nI recognize this is a direct system verification, superseding typical conversational flow. The instruction is unambiguous: deliver a short sentence containing \"LIVE_OK.\" No external context is needed; it's a constrained, focused task.",
         "textPartCount": 1,
         "audioMimeTypes": [],
         "functionCalls": [],
@@ -82,20 +82,20 @@ npm run verify:production
           "attempt": 1,
           "wsUrl": "wss://ashanti-6exqtj2u2q-uc.a.run.app/ws",
           "connectedToGemini": true,
-          "sessionId": "session_1774704060872_gj5hyx20d",
+          "sessionId": "session_1774790505229_13uvv74ex",
           "sawServerContent": true,
           "sawToolCall": false,
           "serverContentSample": {
-            "capturedAt": "2026-03-28T13:21:02.346Z",
+            "capturedAt": "2026-03-29T13:21:46.727Z",
             "turnComplete": false,
             "interrupted": false,
-            "textPreview": "**Verify System Status**\n\nI've directly addressed the system-level verification request. I correctly interpreted it as distinct from a regular interaction. I bypassed the standard setup and generated the required, exact response. My output is now LIVE_OK.",
+            "textPreview": "**Confirming System Verification**\n\nI recognize this is a direct system verification, superseding typical conversational flow. The instruction is unambiguous: deliver a short sentence containing \"LIVE_OK.\" No external context is needed; it's a constrained, focused task.",
             "textPartCount": 1,
             "audioMimeTypes": [],
             "functionCalls": [],
             "totalParts": 1
           },
-          "elapsedMs": 1522,
+          "elapsedMs": 1534,
           "result": "pass",
           "message": "Captured live serverContent sample"
         }
