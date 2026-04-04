@@ -4,9 +4,9 @@ This file is auto-generated from the latest successful **Production Verification
 
 ## Source
 
-- Workflow run ID: `23947774544`
-- Workflow run URL: https://github.com/JStoweYouKnow/Ytb/actions/runs/23947774544
-- Generated at: `2026-04-03T13:26:42.777Z`
+- Workflow run ID: `23979739247`
+- Workflow run URL: https://github.com/JStoweYouKnow/Ytb/actions/runs/23979739247
+- Generated at: `2026-04-04T13:21:59.863Z`
 
 ## Command
 
@@ -14,20 +14,20 @@ This file is auto-generated from the latest successful **Production Verification
 npm run verify:production
 ```
 
-## Latest Result (2026-04-03T13:26:26.265Z)
+## Latest Result (2026-04-04T13:21:43.427Z)
 
 ```json
 {
-  "checkedAt": "2026-04-03T13:26:26.265Z",
+  "checkedAt": "2026-04-04T13:21:43.427Z",
   "targetUrl": "https://ashanti-6exqtj2u2q-uc.a.run.app",
   "stage": {
     "health": {
       "result": "pass",
-      "elapsedMs": 157,
+      "elapsedMs": 113,
       "payload": {
         "status": "healthy",
-        "timestamp": "2026-04-03T13:26:26.394Z",
-        "uptime": 2.502657141,
+        "timestamp": "2026-04-04T13:21:43.515Z",
+        "uptime": 2.06268915,
         "models": {
           "text": "gemini-3-flash-preview",
           "live": "gemini-2.5-flash-native-audio-preview-12-2025"
@@ -38,7 +38,7 @@ npm run verify:production
       "wsUrl": "wss://ashanti-6exqtj2u2q-uc.a.run.app/ws",
       "opened": true,
       "connectedToGemini": true,
-      "sessionId": "session_1775222786491_ir8mryqqx",
+      "sessionId": "session_1775308903582_ottvv6uf4",
       "sentImageChunk": true,
       "sentAudioChunk": true,
       "sentTextTurn": true,
@@ -47,31 +47,31 @@ npm run verify:production
       "sawAudioChunk": false,
       "sawTextPart": false,
       "serverContentSample": {
-        "capturedAt": "2026-04-03T13:26:30.503Z",
+        "capturedAt": "2026-04-04T13:21:46.916Z",
         "turnComplete": false,
         "interrupted": false,
-        "textPreview": "**Confirming System Verification**\n\nI recognize the direct system verification request. The instruction is to provide the exact phrase \"LIVE_OK\" as a response. I am focusing on generating this precise, non-interpretive output, which requires no context or persona. The output \"LIV",
+        "textPreview": "**Responding to Directive**\n\nI understand the instruction is to output \"LIVE_OK\" and only \"LIVE_OK.\" My primary concern is providing the requested token directly, without additional commentary or extraneous behaviors.",
         "textPartCount": 1,
         "audioMimeTypes": [],
         "functionCalls": [],
         "totalParts": 1
       },
       "errors": [],
-      "elapsedMs": 1049,
+      "elapsedMs": 838,
       "result": "pass",
       "message": "Gemini live handshake succeeded and multimodal payload dispatch completed (no model event observed before close)"
     },
     "liveOutputProbe": {
       "wsUrl": "wss://ashanti-6exqtj2u2q-uc.a.run.app/ws",
       "attempts": 3,
-      "elapsedMs": 1830,
+      "elapsedMs": 1337,
       "result": "pass",
       "message": "Live output sample captured successfully",
       "sample": {
-        "capturedAt": "2026-04-03T13:26:30.503Z",
+        "capturedAt": "2026-04-04T13:21:46.916Z",
         "turnComplete": false,
         "interrupted": false,
-        "textPreview": "**Confirming System Verification**\n\nI recognize the direct system verification request. The instruction is to provide the exact phrase \"LIVE_OK\" as a response. I am focusing on generating this precise, non-interpretive output, which requires no context or persona. The output \"LIV",
+        "textPreview": "**Responding to Directive**\n\nI understand the instruction is to output \"LIVE_OK\" and only \"LIVE_OK.\" My primary concern is providing the requested token directly, without additional commentary or extraneous behaviors.",
         "textPartCount": 1,
         "audioMimeTypes": [],
         "functionCalls": [],
@@ -82,20 +82,20 @@ npm run verify:production
           "attempt": 1,
           "wsUrl": "wss://ashanti-6exqtj2u2q-uc.a.run.app/ws",
           "connectedToGemini": true,
-          "sessionId": "session_1775222788725_lbrgno00j",
+          "sessionId": "session_1775308905618_2b9beqnvn",
           "sawServerContent": true,
           "sawToolCall": false,
           "serverContentSample": {
-            "capturedAt": "2026-04-03T13:26:30.503Z",
+            "capturedAt": "2026-04-04T13:21:46.916Z",
             "turnComplete": false,
             "interrupted": false,
-            "textPreview": "**Confirming System Verification**\n\nI recognize the direct system verification request. The instruction is to provide the exact phrase \"LIVE_OK\" as a response. I am focusing on generating this precise, non-interpretive output, which requires no context or persona. The output \"LIV",
+            "textPreview": "**Responding to Directive**\n\nI understand the instruction is to output \"LIVE_OK\" and only \"LIVE_OK.\" My primary concern is providing the requested token directly, without additional commentary or extraneous behaviors.",
             "textPartCount": 1,
             "audioMimeTypes": [],
             "functionCalls": [],
             "totalParts": 1
           },
-          "elapsedMs": 1830,
+          "elapsedMs": 1337,
           "result": "pass",
           "message": "Captured live serverContent sample"
         }
