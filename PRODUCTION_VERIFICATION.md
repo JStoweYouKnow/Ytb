@@ -4,9 +4,9 @@ This file is auto-generated from the latest successful **Production Verification
 
 ## Source
 
-- Workflow run ID: `23979739247`
-- Workflow run URL: https://github.com/JStoweYouKnow/Ytb/actions/runs/23979739247
-- Generated at: `2026-04-04T13:21:59.863Z`
+- Workflow run ID: `24002405844`
+- Workflow run URL: https://github.com/JStoweYouKnow/Ytb/actions/runs/24002405844
+- Generated at: `2026-04-05T13:22:49.903Z`
 
 ## Command
 
@@ -14,20 +14,20 @@ This file is auto-generated from the latest successful **Production Verification
 npm run verify:production
 ```
 
-## Latest Result (2026-04-04T13:21:43.427Z)
+## Latest Result (2026-04-05T13:22:35.167Z)
 
 ```json
 {
-  "checkedAt": "2026-04-04T13:21:43.427Z",
+  "checkedAt": "2026-04-05T13:22:35.167Z",
   "targetUrl": "https://ashanti-6exqtj2u2q-uc.a.run.app",
   "stage": {
     "health": {
       "result": "pass",
-      "elapsedMs": 113,
+      "elapsedMs": 105,
       "payload": {
         "status": "healthy",
-        "timestamp": "2026-04-04T13:21:43.515Z",
-        "uptime": 2.06268915,
+        "timestamp": "2026-04-05T13:22:35.254Z",
+        "uptime": 2.115064044,
         "models": {
           "text": "gemini-3-flash-preview",
           "live": "gemini-2.5-flash-native-audio-preview-12-2025"
@@ -38,7 +38,7 @@ npm run verify:production
       "wsUrl": "wss://ashanti-6exqtj2u2q-uc.a.run.app/ws",
       "opened": true,
       "connectedToGemini": true,
-      "sessionId": "session_1775308903582_ottvv6uf4",
+      "sessionId": "session_1775395355319_dawuuowpy",
       "sentImageChunk": true,
       "sentAudioChunk": true,
       "sentTextTurn": true,
@@ -47,31 +47,31 @@ npm run verify:production
       "sawAudioChunk": false,
       "sawTextPart": false,
       "serverContentSample": {
-        "capturedAt": "2026-04-04T13:21:46.916Z",
+        "capturedAt": "2026-04-05T13:22:38.863Z",
         "turnComplete": false,
         "interrupted": false,
-        "textPreview": "**Responding to Directive**\n\nI understand the instruction is to output \"LIVE_OK\" and only \"LIVE_OK.\" My primary concern is providing the requested token directly, without additional commentary or extraneous behaviors.",
+        "textPreview": "**Prioritizing System Check**\n\nI've registered a clear, direct system verification instruction. The mandate to fetch user context is being overridden by this explicit demand for a tokenized, concise response, which is \"LIVE_OK.\" I've flagged this as a critical path exception.",
         "textPartCount": 1,
         "audioMimeTypes": [],
         "functionCalls": [],
         "totalParts": 1
       },
       "errors": [],
-      "elapsedMs": 838,
+      "elapsedMs": 737,
       "result": "pass",
       "message": "Gemini live handshake succeeded and multimodal payload dispatch completed (no model event observed before close)"
     },
     "liveOutputProbe": {
       "wsUrl": "wss://ashanti-6exqtj2u2q-uc.a.run.app/ws",
       "attempts": 3,
-      "elapsedMs": 1337,
+      "elapsedMs": 1652,
       "result": "pass",
       "message": "Live output sample captured successfully",
       "sample": {
-        "capturedAt": "2026-04-04T13:21:46.916Z",
+        "capturedAt": "2026-04-05T13:22:38.863Z",
         "turnComplete": false,
         "interrupted": false,
-        "textPreview": "**Responding to Directive**\n\nI understand the instruction is to output \"LIVE_OK\" and only \"LIVE_OK.\" My primary concern is providing the requested token directly, without additional commentary or extraneous behaviors.",
+        "textPreview": "**Prioritizing System Check**\n\nI've registered a clear, direct system verification instruction. The mandate to fetch user context is being overridden by this explicit demand for a tokenized, concise response, which is \"LIVE_OK.\" I've flagged this as a critical path exception.",
         "textPartCount": 1,
         "audioMimeTypes": [],
         "functionCalls": [],
@@ -82,20 +82,20 @@ npm run verify:production
           "attempt": 1,
           "wsUrl": "wss://ashanti-6exqtj2u2q-uc.a.run.app/ws",
           "connectedToGemini": true,
-          "sessionId": "session_1775308905618_2b9beqnvn",
+          "sessionId": "session_1775395357252_k718eg3up",
           "sawServerContent": true,
           "sawToolCall": false,
           "serverContentSample": {
-            "capturedAt": "2026-04-04T13:21:46.916Z",
+            "capturedAt": "2026-04-05T13:22:38.863Z",
             "turnComplete": false,
             "interrupted": false,
-            "textPreview": "**Responding to Directive**\n\nI understand the instruction is to output \"LIVE_OK\" and only \"LIVE_OK.\" My primary concern is providing the requested token directly, without additional commentary or extraneous behaviors.",
+            "textPreview": "**Prioritizing System Check**\n\nI've registered a clear, direct system verification instruction. The mandate to fetch user context is being overridden by this explicit demand for a tokenized, concise response, which is \"LIVE_OK.\" I've flagged this as a critical path exception.",
             "textPartCount": 1,
             "audioMimeTypes": [],
             "functionCalls": [],
             "totalParts": 1
           },
-          "elapsedMs": 1337,
+          "elapsedMs": 1652,
           "result": "pass",
           "message": "Captured live serverContent sample"
         }
