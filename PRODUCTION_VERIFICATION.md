@@ -4,9 +4,9 @@ This file is auto-generated from the latest successful **Production Verification
 
 ## Source
 
-- Workflow run ID: `24033658390`
-- Workflow run URL: https://github.com/JStoweYouKnow/Ytb/actions/runs/24033658390
-- Generated at: `2026-04-06T13:28:56.200Z`
+- Workflow run ID: `24083952369`
+- Workflow run URL: https://github.com/JStoweYouKnow/Ytb/actions/runs/24083952369
+- Generated at: `2026-04-07T13:29:53.667Z`
 
 ## Command
 
@@ -14,20 +14,20 @@ This file is auto-generated from the latest successful **Production Verification
 npm run verify:production
 ```
 
-## Latest Result (2026-04-06T13:28:39.689Z)
+## Latest Result (2026-04-07T13:29:36.493Z)
 
 ```json
 {
-  "checkedAt": "2026-04-06T13:28:39.689Z",
+  "checkedAt": "2026-04-07T13:29:36.493Z",
   "targetUrl": "https://ashanti-6exqtj2u2q-uc.a.run.app",
   "stage": {
     "health": {
       "result": "pass",
-      "elapsedMs": 128,
+      "elapsedMs": 111,
       "payload": {
         "status": "healthy",
-        "timestamp": "2026-04-06T13:28:39.783Z",
-        "uptime": 2.358060725,
+        "timestamp": "2026-04-07T13:29:36.582Z",
+        "uptime": 3.024151229,
         "models": {
           "text": "gemini-3-flash-preview",
           "live": "gemini-2.5-flash-native-audio-preview-12-2025"
@@ -38,7 +38,7 @@ npm run verify:production
       "wsUrl": "wss://ashanti-6exqtj2u2q-uc.a.run.app/ws",
       "opened": true,
       "connectedToGemini": true,
-      "sessionId": "session_1775482119869_wpjue57im",
+      "sessionId": "session_1775568576656_8aa7nsden",
       "sentImageChunk": true,
       "sentAudioChunk": true,
       "sentTextTurn": true,
@@ -47,31 +47,31 @@ npm run verify:production
       "sawAudioChunk": false,
       "sawTextPart": false,
       "serverContentSample": {
-        "capturedAt": "2026-04-06T13:28:43.608Z",
+        "capturedAt": "2026-04-07T13:29:40.258Z",
         "turnComplete": false,
         "interrupted": false,
-        "textPreview": "**Executing Direct Instruction**\n\nI've processed the message and recognized the straightforward nature of the request. My understanding is complete: I must output the token 'LIVE_OK'. No further analysis or interpretation is necessary.",
+        "textPreview": "**Verifying Instructions Directly**\n\nI've received a straightforward instruction: to respond with \"LIVE_OK\". My focus remains on adhering precisely to this directive for live output verification. No persona, tool use, or further reasoning is required in this scenario.",
         "textPartCount": 1,
         "audioMimeTypes": [],
         "functionCalls": [],
         "totalParts": 1
       },
       "errors": [],
-      "elapsedMs": 961,
+      "elapsedMs": 1106,
       "result": "pass",
       "message": "Gemini live handshake succeeded and multimodal payload dispatch completed (no model event observed before close)"
     },
     "liveOutputProbe": {
       "wsUrl": "wss://ashanti-6exqtj2u2q-uc.a.run.app/ws",
       "attempts": 3,
-      "elapsedMs": 1629,
+      "elapsedMs": 1346,
       "result": "pass",
       "message": "Live output sample captured successfully",
       "sample": {
-        "capturedAt": "2026-04-06T13:28:43.608Z",
+        "capturedAt": "2026-04-07T13:29:40.258Z",
         "turnComplete": false,
         "interrupted": false,
-        "textPreview": "**Executing Direct Instruction**\n\nI've processed the message and recognized the straightforward nature of the request. My understanding is complete: I must output the token 'LIVE_OK'. No further analysis or interpretation is necessary.",
+        "textPreview": "**Verifying Instructions Directly**\n\nI've received a straightforward instruction: to respond with \"LIVE_OK\". My focus remains on adhering precisely to this directive for live output verification. No persona, tool use, or further reasoning is required in this scenario.",
         "textPartCount": 1,
         "audioMimeTypes": [],
         "functionCalls": [],
@@ -82,20 +82,20 @@ npm run verify:production
           "attempt": 1,
           "wsUrl": "wss://ashanti-6exqtj2u2q-uc.a.run.app/ws",
           "connectedToGemini": true,
-          "sessionId": "session_1775482122023_c5f3bxumg",
+          "sessionId": "session_1775568578951_m3l0xsa32",
           "sawServerContent": true,
           "sawToolCall": false,
           "serverContentSample": {
-            "capturedAt": "2026-04-06T13:28:43.608Z",
+            "capturedAt": "2026-04-07T13:29:40.258Z",
             "turnComplete": false,
             "interrupted": false,
-            "textPreview": "**Executing Direct Instruction**\n\nI've processed the message and recognized the straightforward nature of the request. My understanding is complete: I must output the token 'LIVE_OK'. No further analysis or interpretation is necessary.",
+            "textPreview": "**Verifying Instructions Directly**\n\nI've received a straightforward instruction: to respond with \"LIVE_OK\". My focus remains on adhering precisely to this directive for live output verification. No persona, tool use, or further reasoning is required in this scenario.",
             "textPartCount": 1,
             "audioMimeTypes": [],
             "functionCalls": [],
             "totalParts": 1
           },
-          "elapsedMs": 1629,
+          "elapsedMs": 1346,
           "result": "pass",
           "message": "Captured live serverContent sample"
         }
