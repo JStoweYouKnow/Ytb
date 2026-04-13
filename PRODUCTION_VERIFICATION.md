@@ -4,9 +4,9 @@ This file is auto-generated from the latest successful **Production Verification
 
 ## Source
 
-- Workflow run ID: `24307755070`
-- Workflow run URL: https://github.com/JStoweYouKnow/Ytb/actions/runs/24307755070
-- Generated at: `2026-04-12T13:24:35.088Z`
+- Workflow run ID: `24346055822`
+- Workflow run URL: https://github.com/JStoweYouKnow/Ytb/actions/runs/24346055822
+- Generated at: `2026-04-13T13:30:39.580Z`
 
 ## Command
 
@@ -14,20 +14,20 @@ This file is auto-generated from the latest successful **Production Verification
 npm run verify:production
 ```
 
-## Latest Result (2026-04-12T13:24:18.192Z)
+## Latest Result (2026-04-13T13:30:19.479Z)
 
 ```json
 {
-  "checkedAt": "2026-04-12T13:24:18.192Z",
+  "checkedAt": "2026-04-13T13:30:19.479Z",
   "targetUrl": "https://ashanti-6exqtj2u2q-uc.a.run.app",
   "stage": {
     "health": {
       "result": "pass",
-      "elapsedMs": 109,
+      "elapsedMs": 106,
       "payload": {
         "status": "healthy",
-        "timestamp": "2026-04-12T13:24:18.280Z",
-        "uptime": 2.186231972,
+        "timestamp": "2026-04-13T13:30:19.569Z",
+        "uptime": 3.449135062,
         "models": {
           "text": "gemini-3-flash-preview",
           "live": "gemini-2.5-flash-native-audio-preview-12-2025"
@@ -38,7 +38,7 @@ npm run verify:production
       "wsUrl": "wss://ashanti-6exqtj2u2q-uc.a.run.app/ws",
       "opened": true,
       "connectedToGemini": true,
-      "sessionId": "session_1776000258349_a6z6jfzgx",
+      "sessionId": "session_1776087019636_8q9nd0zl2",
       "sentImageChunk": true,
       "sentAudioChunk": true,
       "sentTextTurn": true,
@@ -47,31 +47,31 @@ npm run verify:production
       "sawAudioChunk": false,
       "sawTextPart": false,
       "serverContentSample": {
-        "capturedAt": "2026-04-12T13:24:22.062Z",
+        "capturedAt": "2026-04-13T13:30:24.072Z",
         "turnComplete": false,
         "interrupted": false,
-        "textPreview": "**Verifying System Output**\n\nI have received a system check and determined the required action. My response will be a single sentence containing the exact token \"LIVE_OK.\" I recognize this as a test prompt and will not engage in any other actions or tools, adhering precisely to t",
+        "textPreview": "**Prioritizing System Check**\n\nI've determined I must prioritize agentic behavior, even for this system check. Therefore, my first step is `getUserContext(\"default\")`. After this, I'll provide the exact phrase, `LIVE_OK`, as requested. The constraints of persona and agentic behav",
         "textPartCount": 1,
         "audioMimeTypes": [],
         "functionCalls": [],
         "totalParts": 1
       },
       "errors": [],
-      "elapsedMs": 881,
+      "elapsedMs": 1277,
       "result": "pass",
       "message": "Gemini live handshake succeeded and multimodal payload dispatch completed (no model event observed before close)"
     },
     "liveOutputProbe": {
       "wsUrl": "wss://ashanti-6exqtj2u2q-uc.a.run.app/ws",
       "attempts": 3,
-      "elapsedMs": 1677,
+      "elapsedMs": 2008,
       "result": "pass",
       "message": "Live output sample captured successfully",
       "sample": {
-        "capturedAt": "2026-04-12T13:24:22.062Z",
+        "capturedAt": "2026-04-13T13:30:24.072Z",
         "turnComplete": false,
         "interrupted": false,
-        "textPreview": "**Verifying System Output**\n\nI have received a system check and determined the required action. My response will be a single sentence containing the exact token \"LIVE_OK.\" I recognize this as a test prompt and will not engage in any other actions or tools, adhering precisely to t",
+        "textPreview": "**Prioritizing System Check**\n\nI've determined I must prioritize agentic behavior, even for this system check. Therefore, my first step is `getUserContext(\"default\")`. After this, I'll provide the exact phrase, `LIVE_OK`, as requested. The constraints of persona and agentic behav",
         "textPartCount": 1,
         "audioMimeTypes": [],
         "functionCalls": [],
@@ -82,20 +82,20 @@ npm run verify:production
           "attempt": 1,
           "wsUrl": "wss://ashanti-6exqtj2u2q-uc.a.run.app/ws",
           "connectedToGemini": true,
-          "sessionId": "session_1776000260422_pg0hdq396",
+          "sessionId": "session_1776087022114_7wl6oe1b7",
           "sawServerContent": true,
           "sawToolCall": false,
           "serverContentSample": {
-            "capturedAt": "2026-04-12T13:24:22.062Z",
+            "capturedAt": "2026-04-13T13:30:24.072Z",
             "turnComplete": false,
             "interrupted": false,
-            "textPreview": "**Verifying System Output**\n\nI have received a system check and determined the required action. My response will be a single sentence containing the exact token \"LIVE_OK.\" I recognize this as a test prompt and will not engage in any other actions or tools, adhering precisely to t",
+            "textPreview": "**Prioritizing System Check**\n\nI've determined I must prioritize agentic behavior, even for this system check. Therefore, my first step is `getUserContext(\"default\")`. After this, I'll provide the exact phrase, `LIVE_OK`, as requested. The constraints of persona and agentic behav",
             "textPartCount": 1,
             "audioMimeTypes": [],
             "functionCalls": [],
             "totalParts": 1
           },
-          "elapsedMs": 1676,
+          "elapsedMs": 2008,
           "result": "pass",
           "message": "Captured live serverContent sample"
         }
