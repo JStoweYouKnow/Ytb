@@ -4,9 +4,9 @@ This file is auto-generated from the latest successful **Production Verification
 
 ## Source
 
-- Workflow run ID: `24346055822`
-- Workflow run URL: https://github.com/JStoweYouKnow/Ytb/actions/runs/24346055822
-- Generated at: `2026-04-13T13:30:39.580Z`
+- Workflow run ID: `24401748924`
+- Workflow run URL: https://github.com/JStoweYouKnow/Ytb/actions/runs/24401748924
+- Generated at: `2026-04-14T13:30:35.177Z`
 
 ## Command
 
@@ -14,20 +14,20 @@ This file is auto-generated from the latest successful **Production Verification
 npm run verify:production
 ```
 
-## Latest Result (2026-04-13T13:30:19.479Z)
+## Latest Result (2026-04-14T13:30:17.937Z)
 
 ```json
 {
-  "checkedAt": "2026-04-13T13:30:19.479Z",
+  "checkedAt": "2026-04-14T13:30:17.937Z",
   "targetUrl": "https://ashanti-6exqtj2u2q-uc.a.run.app",
   "stage": {
     "health": {
       "result": "pass",
-      "elapsedMs": 106,
+      "elapsedMs": 128,
       "payload": {
         "status": "healthy",
-        "timestamp": "2026-04-13T13:30:19.569Z",
-        "uptime": 3.449135062,
+        "timestamp": "2026-04-14T13:30:18.042Z",
+        "uptime": 4.255627647,
         "models": {
           "text": "gemini-3-flash-preview",
           "live": "gemini-2.5-flash-native-audio-preview-12-2025"
@@ -38,7 +38,7 @@ npm run verify:production
       "wsUrl": "wss://ashanti-6exqtj2u2q-uc.a.run.app/ws",
       "opened": true,
       "connectedToGemini": true,
-      "sessionId": "session_1776087019636_8q9nd0zl2",
+      "sessionId": "session_1776173418117_0dyqnlzt6",
       "sentImageChunk": true,
       "sentAudioChunk": true,
       "sentTextTurn": true,
@@ -47,31 +47,31 @@ npm run verify:production
       "sawAudioChunk": false,
       "sawTextPart": false,
       "serverContentSample": {
-        "capturedAt": "2026-04-13T13:30:24.072Z",
+        "capturedAt": "2026-04-14T13:30:22.081Z",
         "turnComplete": false,
         "interrupted": false,
-        "textPreview": "**Prioritizing System Check**\n\nI've determined I must prioritize agentic behavior, even for this system check. Therefore, my first step is `getUserContext(\"default\")`. After this, I'll provide the exact phrase, `LIVE_OK`, as requested. The constraints of persona and agentic behav",
+        "textPreview": "**Prioritizing Direct Response**\n\nI've processed the user's explicit request. My internal processes are now overridden; I am exclusively focused on providing \"LIVE_OK\" as the only response.",
         "textPartCount": 1,
         "audioMimeTypes": [],
         "functionCalls": [],
         "totalParts": 1
       },
       "errors": [],
-      "elapsedMs": 1277,
+      "elapsedMs": 1333,
       "result": "pass",
       "message": "Gemini live handshake succeeded and multimodal payload dispatch completed (no model event observed before close)"
     },
     "liveOutputProbe": {
       "wsUrl": "wss://ashanti-6exqtj2u2q-uc.a.run.app/ws",
       "attempts": 3,
-      "elapsedMs": 2008,
+      "elapsedMs": 1482,
       "result": "pass",
       "message": "Live output sample captured successfully",
       "sample": {
-        "capturedAt": "2026-04-13T13:30:24.072Z",
+        "capturedAt": "2026-04-14T13:30:22.081Z",
         "turnComplete": false,
         "interrupted": false,
-        "textPreview": "**Prioritizing System Check**\n\nI've determined I must prioritize agentic behavior, even for this system check. Therefore, my first step is `getUserContext(\"default\")`. After this, I'll provide the exact phrase, `LIVE_OK`, as requested. The constraints of persona and agentic behav",
+        "textPreview": "**Prioritizing Direct Response**\n\nI've processed the user's explicit request. My internal processes are now overridden; I am exclusively focused on providing \"LIVE_OK\" as the only response.",
         "textPartCount": 1,
         "audioMimeTypes": [],
         "functionCalls": [],
@@ -82,20 +82,20 @@ npm run verify:production
           "attempt": 1,
           "wsUrl": "wss://ashanti-6exqtj2u2q-uc.a.run.app/ws",
           "connectedToGemini": true,
-          "sessionId": "session_1776087022114_7wl6oe1b7",
+          "sessionId": "session_1776173420645_7zf8ws708",
           "sawServerContent": true,
           "sawToolCall": false,
           "serverContentSample": {
-            "capturedAt": "2026-04-13T13:30:24.072Z",
+            "capturedAt": "2026-04-14T13:30:22.081Z",
             "turnComplete": false,
             "interrupted": false,
-            "textPreview": "**Prioritizing System Check**\n\nI've determined I must prioritize agentic behavior, even for this system check. Therefore, my first step is `getUserContext(\"default\")`. After this, I'll provide the exact phrase, `LIVE_OK`, as requested. The constraints of persona and agentic behav",
+            "textPreview": "**Prioritizing Direct Response**\n\nI've processed the user's explicit request. My internal processes are now overridden; I am exclusively focused on providing \"LIVE_OK\" as the only response.",
             "textPartCount": 1,
             "audioMimeTypes": [],
             "functionCalls": [],
             "totalParts": 1
           },
-          "elapsedMs": 2008,
+          "elapsedMs": 1482,
           "result": "pass",
           "message": "Captured live serverContent sample"
         }
