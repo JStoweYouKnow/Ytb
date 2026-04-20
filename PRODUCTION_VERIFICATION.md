@@ -4,9 +4,9 @@ This file is auto-generated from the latest successful **Production Verification
 
 ## Source
 
-- Workflow run ID: `24630149282`
-- Workflow run URL: https://github.com/JStoweYouKnow/Ytb/actions/runs/24630149282
-- Generated at: `2026-04-19T13:25:11.644Z`
+- Workflow run ID: `24669325605`
+- Workflow run URL: https://github.com/JStoweYouKnow/Ytb/actions/runs/24669325605
+- Generated at: `2026-04-20T13:31:12.450Z`
 
 ## Command
 
@@ -14,20 +14,20 @@ This file is auto-generated from the latest successful **Production Verification
 npm run verify:production
 ```
 
-## Latest Result (2026-04-19T13:24:55.951Z)
+## Latest Result (2026-04-20T13:30:54.472Z)
 
 ```json
 {
-  "checkedAt": "2026-04-19T13:24:55.951Z",
+  "checkedAt": "2026-04-20T13:30:54.472Z",
   "targetUrl": "https://ashanti-6exqtj2u2q-uc.a.run.app",
   "stage": {
     "health": {
       "result": "pass",
-      "elapsedMs": 108,
+      "elapsedMs": 162,
       "payload": {
         "status": "healthy",
-        "timestamp": "2026-04-19T13:24:56.041Z",
-        "uptime": 2.053232646,
+        "timestamp": "2026-04-20T13:30:54.604Z",
+        "uptime": 2.712034514,
         "models": {
           "text": "gemini-3-flash-preview",
           "live": "gemini-2.5-flash-native-audio-preview-12-2025"
@@ -38,7 +38,7 @@ npm run verify:production
       "wsUrl": "wss://ashanti-6exqtj2u2q-uc.a.run.app/ws",
       "opened": true,
       "connectedToGemini": true,
-      "sessionId": "session_1776605096098_jdbv3pv22",
+      "sessionId": "session_1776691854687_11a4a0gq7",
       "sentImageChunk": true,
       "sentAudioChunk": true,
       "sentTextTurn": true,
@@ -47,31 +47,31 @@ npm run verify:production
       "sawAudioChunk": false,
       "sawTextPart": false,
       "serverContentSample": {
-        "capturedAt": "2026-04-19T13:24:59.628Z",
+        "capturedAt": "2026-04-20T13:30:58.459Z",
         "turnComplete": false,
         "interrupted": false,
-        "textPreview": "**Verifying System Output**\n\nI've processed the verification request and understand the need for a precise response. My focus is solely on delivering the required \"LIVE_OK\" token in a single sentence, as per the overriding instructions. No other actions are required.",
+        "textPreview": "**Verifying System Output**\n\nMy immediate focus is on executing this specific command, a direct request for a LIVE_OK token. I am bypassing my typical processing to adhere precisely to the output requirements.",
         "textPartCount": 1,
         "audioMimeTypes": [],
         "functionCalls": [],
         "totalParts": 1
       },
       "errors": [],
-      "elapsedMs": 802,
+      "elapsedMs": 1079,
       "result": "pass",
       "message": "Gemini live handshake succeeded and multimodal payload dispatch completed (no model event observed before close)"
     },
     "liveOutputProbe": {
       "wsUrl": "wss://ashanti-6exqtj2u2q-uc.a.run.app/ws",
       "attempts": 3,
-      "elapsedMs": 1565,
+      "elapsedMs": 1543,
       "result": "pass",
       "message": "Live output sample captured successfully",
       "sample": {
-        "capturedAt": "2026-04-19T13:24:59.628Z",
+        "capturedAt": "2026-04-20T13:30:58.459Z",
         "turnComplete": false,
         "interrupted": false,
-        "textPreview": "**Verifying System Output**\n\nI've processed the verification request and understand the need for a precise response. My focus is solely on delivering the required \"LIVE_OK\" token in a single sentence, as per the overriding instructions. No other actions are required.",
+        "textPreview": "**Verifying System Output**\n\nMy immediate focus is on executing this specific command, a direct request for a LIVE_OK token. I am bypassing my typical processing to adhere precisely to the output requirements.",
         "textPartCount": 1,
         "audioMimeTypes": [],
         "functionCalls": [],
@@ -82,20 +82,20 @@ npm run verify:production
           "attempt": 1,
           "wsUrl": "wss://ashanti-6exqtj2u2q-uc.a.run.app/ws",
           "connectedToGemini": true,
-          "sessionId": "session_1776605098098_ur49cbixe",
+          "sessionId": "session_1776691856968_7y3gac3bi",
           "sawServerContent": true,
           "sawToolCall": false,
           "serverContentSample": {
-            "capturedAt": "2026-04-19T13:24:59.628Z",
+            "capturedAt": "2026-04-20T13:30:58.459Z",
             "turnComplete": false,
             "interrupted": false,
-            "textPreview": "**Verifying System Output**\n\nI've processed the verification request and understand the need for a precise response. My focus is solely on delivering the required \"LIVE_OK\" token in a single sentence, as per the overriding instructions. No other actions are required.",
+            "textPreview": "**Verifying System Output**\n\nMy immediate focus is on executing this specific command, a direct request for a LIVE_OK token. I am bypassing my typical processing to adhere precisely to the output requirements.",
             "textPartCount": 1,
             "audioMimeTypes": [],
             "functionCalls": [],
             "totalParts": 1
           },
-          "elapsedMs": 1565,
+          "elapsedMs": 1543,
           "result": "pass",
           "message": "Captured live serverContent sample"
         }
