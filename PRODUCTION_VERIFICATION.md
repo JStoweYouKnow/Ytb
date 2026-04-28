@@ -4,9 +4,9 @@ This file is auto-generated from the latest successful **Production Verification
 
 ## Source
 
-- Workflow run ID: `24997976244`
-- Workflow run URL: https://github.com/JStoweYouKnow/Ytb/actions/runs/24997976244
-- Generated at: `2026-04-27T13:31:28.013Z`
+- Workflow run ID: `25055836165`
+- Workflow run URL: https://github.com/JStoweYouKnow/Ytb/actions/runs/25055836165
+- Generated at: `2026-04-28T13:32:12.427Z`
 
 ## Command
 
@@ -14,20 +14,20 @@ This file is auto-generated from the latest successful **Production Verification
 npm run verify:production
 ```
 
-## Latest Result (2026-04-27T13:31:09.212Z)
+## Latest Result (2026-04-28T13:31:55.218Z)
 
 ```json
 {
-  "checkedAt": "2026-04-27T13:31:09.212Z",
+  "checkedAt": "2026-04-28T13:31:55.218Z",
   "targetUrl": "https://ashanti-6exqtj2u2q-uc.a.run.app",
   "stage": {
     "health": {
       "result": "pass",
-      "elapsedMs": 111,
+      "elapsedMs": 130,
       "payload": {
         "status": "healthy",
-        "timestamp": "2026-04-27T13:31:09.301Z",
-        "uptime": 2.024343018,
+        "timestamp": "2026-04-28T13:31:55.320Z",
+        "uptime": 2.053027614,
         "models": {
           "text": "gemini-3-flash-preview",
           "live": "gemini-2.5-flash-native-audio-preview-12-2025"
@@ -38,7 +38,7 @@ npm run verify:production
       "wsUrl": "wss://ashanti-6exqtj2u2q-uc.a.run.app/ws",
       "opened": true,
       "connectedToGemini": true,
-      "sessionId": "session_1777296669364_nnb8dz67z",
+      "sessionId": "session_1777383115401_l33adeegf",
       "sentImageChunk": true,
       "sentAudioChunk": true,
       "sentTextTurn": true,
@@ -47,31 +47,31 @@ npm run verify:production
       "sawAudioChunk": false,
       "sawTextPart": false,
       "serverContentSample": {
-        "capturedAt": "2026-04-27T13:31:13.233Z",
+        "capturedAt": "2026-04-28T13:31:58.901Z",
         "turnComplete": false,
         "interrupted": false,
-        "textPreview": "**Confirming System Response**\n\nI've processed the system verification message and the simple instruction to respond with \"LIVE_OK\". I'm ready to provide the designated token as output; no tools are needed.",
+        "textPreview": "**Verify System Prompt Response**\n\nI've zeroed in on the critical instruction: the response *must* be `LIVE_OK`. It's a precise system check, demanding absolute adherence to the specified token and nothing more. I understand to avoid any extraneous actions.",
         "textPartCount": 1,
         "audioMimeTypes": [],
         "functionCalls": [],
         "totalParts": 1
       },
       "errors": [],
-      "elapsedMs": 710,
+      "elapsedMs": 763,
       "result": "pass",
       "message": "Gemini live handshake succeeded and multimodal payload dispatch completed (no model event observed before close)"
     },
     "liveOutputProbe": {
       "wsUrl": "wss://ashanti-6exqtj2u2q-uc.a.run.app/ws",
       "attempts": 3,
-      "elapsedMs": 2001,
+      "elapsedMs": 1588,
       "result": "pass",
       "message": "Live output sample captured successfully",
       "sample": {
-        "capturedAt": "2026-04-27T13:31:13.233Z",
+        "capturedAt": "2026-04-28T13:31:58.901Z",
         "turnComplete": false,
         "interrupted": false,
-        "textPreview": "**Confirming System Response**\n\nI've processed the system verification message and the simple instruction to respond with \"LIVE_OK\". I'm ready to provide the designated token as output; no tools are needed.",
+        "textPreview": "**Verify System Prompt Response**\n\nI've zeroed in on the critical instruction: the response *must* be `LIVE_OK`. It's a precise system check, demanding absolute adherence to the specified token and nothing more. I understand to avoid any extraneous actions.",
         "textPartCount": 1,
         "audioMimeTypes": [],
         "functionCalls": [],
@@ -82,20 +82,20 @@ npm run verify:production
           "attempt": 1,
           "wsUrl": "wss://ashanti-6exqtj2u2q-uc.a.run.app/ws",
           "connectedToGemini": true,
-          "sessionId": "session_1777296671273_gyrhf1x5a",
+          "sessionId": "session_1777383117361_70d9ikam9",
           "sawServerContent": true,
           "sawToolCall": false,
           "serverContentSample": {
-            "capturedAt": "2026-04-27T13:31:13.233Z",
+            "capturedAt": "2026-04-28T13:31:58.901Z",
             "turnComplete": false,
             "interrupted": false,
-            "textPreview": "**Confirming System Response**\n\nI've processed the system verification message and the simple instruction to respond with \"LIVE_OK\". I'm ready to provide the designated token as output; no tools are needed.",
+            "textPreview": "**Verify System Prompt Response**\n\nI've zeroed in on the critical instruction: the response *must* be `LIVE_OK`. It's a precise system check, demanding absolute adherence to the specified token and nothing more. I understand to avoid any extraneous actions.",
             "textPartCount": 1,
             "audioMimeTypes": [],
             "functionCalls": [],
             "totalParts": 1
           },
-          "elapsedMs": 1999,
+          "elapsedMs": 1588,
           "result": "pass",
           "message": "Captured live serverContent sample"
         }
