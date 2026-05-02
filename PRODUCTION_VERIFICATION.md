@@ -4,9 +4,9 @@ This file is auto-generated from the latest successful **Production Verification
 
 ## Source
 
-- Workflow run ID: `25216042294`
-- Workflow run URL: https://github.com/JStoweYouKnow/Ytb/actions/runs/25216042294
-- Generated at: `2026-05-01T13:29:14.720Z`
+- Workflow run ID: `25252978659`
+- Workflow run URL: https://github.com/JStoweYouKnow/Ytb/actions/runs/25252978659
+- Generated at: `2026-05-02T13:28:47.478Z`
 
 ## Command
 
@@ -14,20 +14,20 @@ This file is auto-generated from the latest successful **Production Verification
 npm run verify:production
 ```
 
-## Latest Result (2026-05-01T13:28:49.564Z)
+## Latest Result (2026-05-02T13:28:30.128Z)
 
 ```json
 {
-  "checkedAt": "2026-05-01T13:28:49.564Z",
+  "checkedAt": "2026-05-02T13:28:30.128Z",
   "targetUrl": "https://ashanti-6exqtj2u2q-uc.a.run.app",
   "stage": {
     "health": {
       "result": "pass",
-      "elapsedMs": 117,
+      "elapsedMs": 121,
       "payload": {
         "status": "healthy",
-        "timestamp": "2026-05-01T13:28:49.667Z",
-        "uptime": 2.46000379,
+        "timestamp": "2026-05-02T13:28:30.223Z",
+        "uptime": 2.287076108,
         "models": {
           "text": "gemini-3-flash-preview",
           "live": "gemini-2.5-flash-native-audio-preview-12-2025"
@@ -38,7 +38,7 @@ npm run verify:production
       "wsUrl": "wss://ashanti-6exqtj2u2q-uc.a.run.app/ws",
       "opened": true,
       "connectedToGemini": true,
-      "sessionId": "session_1777642129724_yfta6x6w6",
+      "sessionId": "session_1777728510300_t3llan49d",
       "sentImageChunk": true,
       "sentAudioChunk": true,
       "sentTextTurn": true,
@@ -47,31 +47,31 @@ npm run verify:production
       "sawAudioChunk": false,
       "sawTextPart": false,
       "serverContentSample": {
-        "capturedAt": "2026-05-01T13:28:55.998Z",
+        "capturedAt": "2026-05-02T13:28:33.983Z",
         "turnComplete": false,
         "interrupted": false,
-        "textPreview": "**Confirming System Integrity**\n\nI've processed the verification prompt and its constraints. My focus is now on ensuring a strictly formatted response. I need to output \"LIVE_OK\" and only \"LIVE_OK\". There's no room for extraneous information or deviation from this single-token ou",
+        "textPreview": "**Confirming Immediate Response**\n\nI've registered the user's explicit request for a verification response. It's a straightforward command that requires a direct answer. My task is simply to ensure I deliver \"LIVE_OK\" as a sentence, nothing more. There's no need for interpretatio",
         "textPartCount": 1,
         "audioMimeTypes": [],
         "functionCalls": [],
         "totalParts": 1
       },
       "errors": [],
-      "elapsedMs": 849,
+      "elapsedMs": 856,
       "result": "pass",
       "message": "Gemini live handshake succeeded and multimodal payload dispatch completed (no model event observed before close)"
     },
     "liveOutputProbe": {
       "wsUrl": "wss://ashanti-6exqtj2u2q-uc.a.run.app/ws",
       "attempts": 3,
-      "elapsedMs": 4267,
+      "elapsedMs": 1677,
       "result": "pass",
       "message": "Live output sample captured successfully",
       "sample": {
-        "capturedAt": "2026-05-01T13:28:55.998Z",
+        "capturedAt": "2026-05-02T13:28:33.983Z",
         "turnComplete": false,
         "interrupted": false,
-        "textPreview": "**Confirming System Integrity**\n\nI've processed the verification prompt and its constraints. My focus is now on ensuring a strictly formatted response. I need to output \"LIVE_OK\" and only \"LIVE_OK\". There's no room for extraneous information or deviation from this single-token ou",
+        "textPreview": "**Confirming Immediate Response**\n\nI've registered the user's explicit request for a verification response. It's a straightforward command that requires a direct answer. My task is simply to ensure I deliver \"LIVE_OK\" as a sentence, nothing more. There's no need for interpretatio",
         "textPartCount": 1,
         "audioMimeTypes": [],
         "functionCalls": [],
@@ -82,20 +82,20 @@ npm run verify:production
           "attempt": 1,
           "wsUrl": "wss://ashanti-6exqtj2u2q-uc.a.run.app/ws",
           "connectedToGemini": true,
-          "sessionId": "session_1777642131767_8vin9lxys",
+          "sessionId": "session_1777728512352_54igt8eyu",
           "sawServerContent": true,
           "sawToolCall": false,
           "serverContentSample": {
-            "capturedAt": "2026-05-01T13:28:55.998Z",
+            "capturedAt": "2026-05-02T13:28:33.983Z",
             "turnComplete": false,
             "interrupted": false,
-            "textPreview": "**Confirming System Integrity**\n\nI've processed the verification prompt and its constraints. My focus is now on ensuring a strictly formatted response. I need to output \"LIVE_OK\" and only \"LIVE_OK\". There's no room for extraneous information or deviation from this single-token ou",
+            "textPreview": "**Confirming Immediate Response**\n\nI've registered the user's explicit request for a verification response. It's a straightforward command that requires a direct answer. My task is simply to ensure I deliver \"LIVE_OK\" as a sentence, nothing more. There's no need for interpretatio",
             "textPartCount": 1,
             "audioMimeTypes": [],
             "functionCalls": [],
             "totalParts": 1
           },
-          "elapsedMs": 4267,
+          "elapsedMs": 1677,
           "result": "pass",
           "message": "Captured live serverContent sample"
         }
