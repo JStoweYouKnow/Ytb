@@ -4,9 +4,9 @@ This file is auto-generated from the latest successful **Production Verification
 
 ## Source
 
-- Workflow run ID: `25802801001`
-- Workflow run URL: https://github.com/JStoweYouKnow/Ytb/actions/runs/25802801001
-- Generated at: `2026-05-13T13:40:40.215Z`
+- Workflow run ID: `25862851906`
+- Workflow run URL: https://github.com/JStoweYouKnow/Ytb/actions/runs/25862851906
+- Generated at: `2026-05-14T13:32:03.194Z`
 
 ## Command
 
@@ -14,20 +14,20 @@ This file is auto-generated from the latest successful **Production Verification
 npm run verify:production
 ```
 
-## Latest Result (2026-05-13T13:40:17.610Z)
+## Latest Result (2026-05-14T13:31:47.590Z)
 
 ```json
 {
-  "checkedAt": "2026-05-13T13:40:17.610Z",
+  "checkedAt": "2026-05-14T13:31:47.590Z",
   "targetUrl": "https://ashanti-6exqtj2u2q-uc.a.run.app",
   "stage": {
     "health": {
       "result": "pass",
-      "elapsedMs": 145,
+      "elapsedMs": 107,
       "payload": {
         "status": "healthy",
-        "timestamp": "2026-05-13T13:40:17.721Z",
-        "uptime": 2.440189965,
+        "timestamp": "2026-05-14T13:31:47.676Z",
+        "uptime": 2.434592479,
         "models": {
           "text": "gemini-3-flash-preview",
           "live": "gemini-2.5-flash-native-audio-preview-12-2025"
@@ -38,7 +38,7 @@ npm run verify:production
       "wsUrl": "wss://ashanti-6exqtj2u2q-uc.a.run.app/ws",
       "opened": true,
       "connectedToGemini": true,
-      "sessionId": "session_1778679617828_1oke22z82",
+      "sessionId": "session_1778765507737_0bboa3hep",
       "sentImageChunk": true,
       "sentAudioChunk": true,
       "sentTextTurn": true,
@@ -47,31 +47,31 @@ npm run verify:production
       "sawAudioChunk": false,
       "sawTextPart": false,
       "serverContentSample": {
-        "capturedAt": "2026-05-13T13:40:21.891Z",
+        "capturedAt": "2026-05-14T13:31:51.460Z",
         "turnComplete": false,
         "interrupted": false,
-        "textPreview": "**Verifying Output Adherence**\n\nI've processed the user's message. It's a direct instruction for a specific output format, so my immediate focus is on ensuring strict adherence to the request. I understand that the sole objective is to provide the designated response, LIVE_OK, an",
+        "textPreview": "**Confirming System Verification**\n\nI understand the direct instruction: provide a single sentence containing the token `LIVE_OK`. My task is a simple verification, so I will ensure strict adherence to this format. No other actions or tools are required.",
         "textPartCount": 1,
         "audioMimeTypes": [],
         "functionCalls": [],
         "totalParts": 1
       },
       "errors": [],
-      "elapsedMs": 963,
+      "elapsedMs": 865,
       "result": "pass",
       "message": "Gemini live handshake succeeded and multimodal payload dispatch completed (no model event observed before close)"
     },
     "liveOutputProbe": {
       "wsUrl": "wss://ashanti-6exqtj2u2q-uc.a.run.app/ws",
       "attempts": 3,
-      "elapsedMs": 1973,
+      "elapsedMs": 1697,
       "result": "pass",
       "message": "Live output sample captured successfully",
       "sample": {
-        "capturedAt": "2026-05-13T13:40:21.891Z",
+        "capturedAt": "2026-05-14T13:31:51.460Z",
         "turnComplete": false,
         "interrupted": false,
-        "textPreview": "**Verifying Output Adherence**\n\nI've processed the user's message. It's a direct instruction for a specific output format, so my immediate focus is on ensuring strict adherence to the request. I understand that the sole objective is to provide the designated response, LIVE_OK, an",
+        "textPreview": "**Confirming System Verification**\n\nI understand the direct instruction: provide a single sentence containing the token `LIVE_OK`. My task is a simple verification, so I will ensure strict adherence to this format. No other actions or tools are required.",
         "textPartCount": 1,
         "audioMimeTypes": [],
         "functionCalls": [],
@@ -82,20 +82,20 @@ npm run verify:production
           "attempt": 1,
           "wsUrl": "wss://ashanti-6exqtj2u2q-uc.a.run.app/ws",
           "connectedToGemini": true,
-          "sessionId": "session_1778679619979_c5rcsj34e",
+          "sessionId": "session_1778765509824_a162p5tbi",
           "sawServerContent": true,
           "sawToolCall": false,
           "serverContentSample": {
-            "capturedAt": "2026-05-13T13:40:21.891Z",
+            "capturedAt": "2026-05-14T13:31:51.460Z",
             "turnComplete": false,
             "interrupted": false,
-            "textPreview": "**Verifying Output Adherence**\n\nI've processed the user's message. It's a direct instruction for a specific output format, so my immediate focus is on ensuring strict adherence to the request. I understand that the sole objective is to provide the designated response, LIVE_OK, an",
+            "textPreview": "**Confirming System Verification**\n\nI understand the direct instruction: provide a single sentence containing the token `LIVE_OK`. My task is a simple verification, so I will ensure strict adherence to this format. No other actions or tools are required.",
             "textPartCount": 1,
             "audioMimeTypes": [],
             "functionCalls": [],
             "totalParts": 1
           },
-          "elapsedMs": 1972,
+          "elapsedMs": 1697,
           "result": "pass",
           "message": "Captured live serverContent sample"
         }
