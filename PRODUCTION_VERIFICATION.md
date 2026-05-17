@@ -4,9 +4,9 @@ This file is auto-generated from the latest successful **Production Verification
 
 ## Source
 
-- Workflow run ID: `25963155862`
-- Workflow run URL: https://github.com/JStoweYouKnow/Ytb/actions/runs/25963155862
-- Generated at: `2026-05-16T13:29:25.321Z`
+- Workflow run ID: `25992197731`
+- Workflow run URL: https://github.com/JStoweYouKnow/Ytb/actions/runs/25992197731
+- Generated at: `2026-05-17T13:29:12.756Z`
 
 ## Command
 
@@ -14,20 +14,20 @@ This file is auto-generated from the latest successful **Production Verification
 npm run verify:production
 ```
 
-## Latest Result (2026-05-16T13:29:04.373Z)
+## Latest Result (2026-05-17T13:28:55.752Z)
 
 ```json
 {
-  "checkedAt": "2026-05-16T13:29:04.373Z",
+  "checkedAt": "2026-05-17T13:28:55.752Z",
   "targetUrl": "https://ashanti-6exqtj2u2q-uc.a.run.app",
   "stage": {
     "health": {
       "result": "pass",
-      "elapsedMs": 125,
+      "elapsedMs": 100,
       "payload": {
         "status": "healthy",
-        "timestamp": "2026-05-16T13:29:04.465Z",
-        "uptime": 2.052653917,
+        "timestamp": "2026-05-17T13:28:55.838Z",
+        "uptime": 1.781333342,
         "models": {
           "text": "gemini-3-flash-preview",
           "live": "gemini-2.5-flash-native-audio-preview-12-2025"
@@ -38,7 +38,7 @@ npm run verify:production
       "wsUrl": "wss://ashanti-6exqtj2u2q-uc.a.run.app/ws",
       "opened": true,
       "connectedToGemini": true,
-      "sessionId": "session_1778938144546_3htawxp89",
+      "sessionId": "session_1779024535947_mvlusn93v",
       "sentImageChunk": true,
       "sentAudioChunk": true,
       "sentTextTurn": true,
@@ -47,31 +47,31 @@ npm run verify:production
       "sawAudioChunk": false,
       "sawTextPart": false,
       "serverContentSample": {
-        "capturedAt": "2026-05-16T13:29:09.634Z",
+        "capturedAt": "2026-05-17T13:28:59.840Z",
         "turnComplete": false,
         "interrupted": false,
-        "textPreview": "**Verifying System Output**\n\nI've analyzed the verification prompt. My response will be a concise sentence that includes the \"LIVE_OK\" token, specifically avoiding any tool calls, adhering to the instruction's implicit and explicit requirements. I will respond, LIVE_OK, as I've b",
+        "textPreview": "**Processing Direct Instruction**\n\nI've got a very straightforward instruction to follow. The task involves a system check, not typical conversational content. My goal is simple: generate the exact phrase \"LIVE_OK\" as a concise response.",
         "textPartCount": 1,
         "audioMimeTypes": [],
         "functionCalls": [],
         "totalParts": 1
       },
       "errors": [],
-      "elapsedMs": 780,
+      "elapsedMs": 723,
       "result": "pass",
       "message": "Gemini live handshake succeeded and multimodal payload dispatch completed (no model event observed before close)"
     },
     "liveOutputProbe": {
       "wsUrl": "wss://ashanti-6exqtj2u2q-uc.a.run.app/ws",
       "attempts": 3,
-      "elapsedMs": 3155,
+      "elapsedMs": 2064,
       "result": "pass",
       "message": "Live output sample captured successfully",
       "sample": {
-        "capturedAt": "2026-05-16T13:29:09.634Z",
+        "capturedAt": "2026-05-17T13:28:59.840Z",
         "turnComplete": false,
         "interrupted": false,
-        "textPreview": "**Verifying System Output**\n\nI've analyzed the verification prompt. My response will be a concise sentence that includes the \"LIVE_OK\" token, specifically avoiding any tool calls, adhering to the instruction's implicit and explicit requirements. I will respond, LIVE_OK, as I've b",
+        "textPreview": "**Processing Direct Instruction**\n\nI've got a very straightforward instruction to follow. The task involves a system check, not typical conversational content. My goal is simple: generate the exact phrase \"LIVE_OK\" as a concise response.",
         "textPartCount": 1,
         "audioMimeTypes": [],
         "functionCalls": [],
@@ -82,20 +82,20 @@ npm run verify:production
           "attempt": 1,
           "wsUrl": "wss://ashanti-6exqtj2u2q-uc.a.run.app/ws",
           "connectedToGemini": true,
-          "sessionId": "session_1778938146522_j68beuhu8",
+          "sessionId": "session_1779024537814_6yp2pyt3d",
           "sawServerContent": true,
           "sawToolCall": false,
           "serverContentSample": {
-            "capturedAt": "2026-05-16T13:29:09.634Z",
+            "capturedAt": "2026-05-17T13:28:59.840Z",
             "turnComplete": false,
             "interrupted": false,
-            "textPreview": "**Verifying System Output**\n\nI've analyzed the verification prompt. My response will be a concise sentence that includes the \"LIVE_OK\" token, specifically avoiding any tool calls, adhering to the instruction's implicit and explicit requirements. I will respond, LIVE_OK, as I've b",
+            "textPreview": "**Processing Direct Instruction**\n\nI've got a very straightforward instruction to follow. The task involves a system check, not typical conversational content. My goal is simple: generate the exact phrase \"LIVE_OK\" as a concise response.",
             "textPartCount": 1,
             "audioMimeTypes": [],
             "functionCalls": [],
             "totalParts": 1
           },
-          "elapsedMs": 3155,
+          "elapsedMs": 2064,
           "result": "pass",
           "message": "Captured live serverContent sample"
         }
