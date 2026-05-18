@@ -4,9 +4,9 @@ This file is auto-generated from the latest successful **Production Verification
 
 ## Source
 
-- Workflow run ID: `25992197731`
-- Workflow run URL: https://github.com/JStoweYouKnow/Ytb/actions/runs/25992197731
-- Generated at: `2026-05-17T13:29:12.756Z`
+- Workflow run ID: `26038768116`
+- Workflow run URL: https://github.com/JStoweYouKnow/Ytb/actions/runs/26038768116
+- Generated at: `2026-05-18T14:09:39.035Z`
 
 ## Command
 
@@ -14,20 +14,20 @@ This file is auto-generated from the latest successful **Production Verification
 npm run verify:production
 ```
 
-## Latest Result (2026-05-17T13:28:55.752Z)
+## Latest Result (2026-05-18T14:09:17.760Z)
 
 ```json
 {
-  "checkedAt": "2026-05-17T13:28:55.752Z",
+  "checkedAt": "2026-05-18T14:09:17.760Z",
   "targetUrl": "https://ashanti-6exqtj2u2q-uc.a.run.app",
   "stage": {
     "health": {
       "result": "pass",
-      "elapsedMs": 100,
+      "elapsedMs": 156,
       "payload": {
         "status": "healthy",
-        "timestamp": "2026-05-17T13:28:55.838Z",
-        "uptime": 1.781333342,
+        "timestamp": "2026-05-18T14:09:17.877Z",
+        "uptime": 2.486247488,
         "models": {
           "text": "gemini-3-flash-preview",
           "live": "gemini-2.5-flash-native-audio-preview-12-2025"
@@ -38,7 +38,7 @@ npm run verify:production
       "wsUrl": "wss://ashanti-6exqtj2u2q-uc.a.run.app/ws",
       "opened": true,
       "connectedToGemini": true,
-      "sessionId": "session_1779024535947_mvlusn93v",
+      "sessionId": "session_1779113357960_2und9xh90",
       "sentImageChunk": true,
       "sentAudioChunk": true,
       "sentTextTurn": true,
@@ -47,31 +47,31 @@ npm run verify:production
       "sawAudioChunk": false,
       "sawTextPart": false,
       "serverContentSample": {
-        "capturedAt": "2026-05-17T13:28:59.840Z",
+        "capturedAt": "2026-05-18T14:09:21.612Z",
         "turnComplete": false,
         "interrupted": false,
-        "textPreview": "**Processing Direct Instruction**\n\nI've got a very straightforward instruction to follow. The task involves a system check, not typical conversational content. My goal is simple: generate the exact phrase \"LIVE_OK\" as a concise response.",
+        "textPreview": "**Prioritizing Direct Response**\n\nI've streamlined my focus to address the core instruction. My primary objective is to generate the exact phrase \"LIVE_OK\" as a direct answer, avoiding any unnecessary context or persona elements.",
         "textPartCount": 1,
         "audioMimeTypes": [],
         "functionCalls": [],
         "totalParts": 1
       },
       "errors": [],
-      "elapsedMs": 723,
+      "elapsedMs": 792,
       "result": "pass",
       "message": "Gemini live handshake succeeded and multimodal payload dispatch completed (no model event observed before close)"
     },
     "liveOutputProbe": {
       "wsUrl": "wss://ashanti-6exqtj2u2q-uc.a.run.app/ws",
       "attempts": 3,
-      "elapsedMs": 2064,
+      "elapsedMs": 1703,
       "result": "pass",
       "message": "Live output sample captured successfully",
       "sample": {
-        "capturedAt": "2026-05-17T13:28:59.840Z",
+        "capturedAt": "2026-05-18T14:09:21.612Z",
         "turnComplete": false,
         "interrupted": false,
-        "textPreview": "**Processing Direct Instruction**\n\nI've got a very straightforward instruction to follow. The task involves a system check, not typical conversational content. My goal is simple: generate the exact phrase \"LIVE_OK\" as a concise response.",
+        "textPreview": "**Prioritizing Direct Response**\n\nI've streamlined my focus to address the core instruction. My primary objective is to generate the exact phrase \"LIVE_OK\" as a direct answer, avoiding any unnecessary context or persona elements.",
         "textPartCount": 1,
         "audioMimeTypes": [],
         "functionCalls": [],
@@ -82,20 +82,20 @@ npm run verify:production
           "attempt": 1,
           "wsUrl": "wss://ashanti-6exqtj2u2q-uc.a.run.app/ws",
           "connectedToGemini": true,
-          "sessionId": "session_1779024537814_6yp2pyt3d",
+          "sessionId": "session_1779113359947_ghg1s67ee",
           "sawServerContent": true,
           "sawToolCall": false,
           "serverContentSample": {
-            "capturedAt": "2026-05-17T13:28:59.840Z",
+            "capturedAt": "2026-05-18T14:09:21.612Z",
             "turnComplete": false,
             "interrupted": false,
-            "textPreview": "**Processing Direct Instruction**\n\nI've got a very straightforward instruction to follow. The task involves a system check, not typical conversational content. My goal is simple: generate the exact phrase \"LIVE_OK\" as a concise response.",
+            "textPreview": "**Prioritizing Direct Response**\n\nI've streamlined my focus to address the core instruction. My primary objective is to generate the exact phrase \"LIVE_OK\" as a direct answer, avoiding any unnecessary context or persona elements.",
             "textPartCount": 1,
             "audioMimeTypes": [],
             "functionCalls": [],
             "totalParts": 1
           },
-          "elapsedMs": 2064,
+          "elapsedMs": 1702,
           "result": "pass",
           "message": "Captured live serverContent sample"
         }
