@@ -4,9 +4,9 @@ This file is auto-generated from the latest successful **Production Verification
 
 ## Source
 
-- Workflow run ID: `26038768116`
-- Workflow run URL: https://github.com/JStoweYouKnow/Ytb/actions/runs/26038768116
-- Generated at: `2026-05-18T14:09:39.035Z`
+- Workflow run ID: `26102057978`
+- Workflow run URL: https://github.com/JStoweYouKnow/Ytb/actions/runs/26102057978
+- Generated at: `2026-05-19T13:59:00.739Z`
 
 ## Command
 
@@ -14,20 +14,20 @@ This file is auto-generated from the latest successful **Production Verification
 npm run verify:production
 ```
 
-## Latest Result (2026-05-18T14:09:17.760Z)
+## Latest Result (2026-05-19T13:58:37.786Z)
 
 ```json
 {
-  "checkedAt": "2026-05-18T14:09:17.760Z",
+  "checkedAt": "2026-05-19T13:58:37.786Z",
   "targetUrl": "https://ashanti-6exqtj2u2q-uc.a.run.app",
   "stage": {
     "health": {
       "result": "pass",
-      "elapsedMs": 156,
+      "elapsedMs": 135,
       "payload": {
         "status": "healthy",
-        "timestamp": "2026-05-18T14:09:17.877Z",
-        "uptime": 2.486247488,
+        "timestamp": "2026-05-19T13:58:37.902Z",
+        "uptime": 2.568359417,
         "models": {
           "text": "gemini-3-flash-preview",
           "live": "gemini-2.5-flash-native-audio-preview-12-2025"
@@ -38,7 +38,7 @@ npm run verify:production
       "wsUrl": "wss://ashanti-6exqtj2u2q-uc.a.run.app/ws",
       "opened": true,
       "connectedToGemini": true,
-      "sessionId": "session_1779113357960_2und9xh90",
+      "sessionId": "session_1779199117981_my73vzhsb",
       "sentImageChunk": true,
       "sentAudioChunk": true,
       "sentTextTurn": true,
@@ -47,31 +47,31 @@ npm run verify:production
       "sawAudioChunk": false,
       "sawTextPart": false,
       "serverContentSample": {
-        "capturedAt": "2026-05-18T14:09:21.612Z",
+        "capturedAt": "2026-05-19T13:58:43.318Z",
         "turnComplete": false,
         "interrupted": false,
-        "textPreview": "**Prioritizing Direct Response**\n\nI've streamlined my focus to address the core instruction. My primary objective is to generate the exact phrase \"LIVE_OK\" as a direct answer, avoiding any unnecessary context or persona elements.",
+        "textPreview": "**Executing System Check**\n\nI have analyzed the user's request. My focus is on the direct verification query and the specified response format. I've identified \"LIVE_OK\" as the correct token. I'm formulating the response as that single token, bypassing standard conversational set",
         "textPartCount": 1,
         "audioMimeTypes": [],
         "functionCalls": [],
         "totalParts": 1
       },
       "errors": [],
-      "elapsedMs": 792,
+      "elapsedMs": 1011,
       "result": "pass",
       "message": "Gemini live handshake succeeded and multimodal payload dispatch completed (no model event observed before close)"
     },
     "liveOutputProbe": {
       "wsUrl": "wss://ashanti-6exqtj2u2q-uc.a.run.app/ws",
       "attempts": 3,
-      "elapsedMs": 1703,
+      "elapsedMs": 3186,
       "result": "pass",
       "message": "Live output sample captured successfully",
       "sample": {
-        "capturedAt": "2026-05-18T14:09:21.612Z",
+        "capturedAt": "2026-05-19T13:58:43.318Z",
         "turnComplete": false,
         "interrupted": false,
-        "textPreview": "**Prioritizing Direct Response**\n\nI've streamlined my focus to address the core instruction. My primary objective is to generate the exact phrase \"LIVE_OK\" as a direct answer, avoiding any unnecessary context or persona elements.",
+        "textPreview": "**Executing System Check**\n\nI have analyzed the user's request. My focus is on the direct verification query and the specified response format. I've identified \"LIVE_OK\" as the correct token. I'm formulating the response as that single token, bypassing standard conversational set",
         "textPartCount": 1,
         "audioMimeTypes": [],
         "functionCalls": [],
@@ -82,20 +82,20 @@ npm run verify:production
           "attempt": 1,
           "wsUrl": "wss://ashanti-6exqtj2u2q-uc.a.run.app/ws",
           "connectedToGemini": true,
-          "sessionId": "session_1779113359947_ghg1s67ee",
+          "sessionId": "session_1779199120195_8bs9c9ks3",
           "sawServerContent": true,
           "sawToolCall": false,
           "serverContentSample": {
-            "capturedAt": "2026-05-18T14:09:21.612Z",
+            "capturedAt": "2026-05-19T13:58:43.318Z",
             "turnComplete": false,
             "interrupted": false,
-            "textPreview": "**Prioritizing Direct Response**\n\nI've streamlined my focus to address the core instruction. My primary objective is to generate the exact phrase \"LIVE_OK\" as a direct answer, avoiding any unnecessary context or persona elements.",
+            "textPreview": "**Executing System Check**\n\nI have analyzed the user's request. My focus is on the direct verification query and the specified response format. I've identified \"LIVE_OK\" as the correct token. I'm formulating the response as that single token, bypassing standard conversational set",
             "textPartCount": 1,
             "audioMimeTypes": [],
             "functionCalls": [],
             "totalParts": 1
           },
-          "elapsedMs": 1702,
+          "elapsedMs": 3185,
           "result": "pass",
           "message": "Captured live serverContent sample"
         }
