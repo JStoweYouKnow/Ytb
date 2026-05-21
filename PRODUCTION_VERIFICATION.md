@@ -4,9 +4,9 @@ This file is auto-generated from the latest successful **Production Verification
 
 ## Source
 
-- Workflow run ID: `26166913535`
-- Workflow run URL: https://github.com/JStoweYouKnow/Ytb/actions/runs/26166913535
-- Generated at: `2026-05-20T13:50:48.192Z`
+- Workflow run ID: `26230945247`
+- Workflow run URL: https://github.com/JStoweYouKnow/Ytb/actions/runs/26230945247
+- Generated at: `2026-05-21T14:04:25.489Z`
 
 ## Command
 
@@ -14,20 +14,20 @@ This file is auto-generated from the latest successful **Production Verification
 npm run verify:production
 ```
 
-## Latest Result (2026-05-20T13:50:28.389Z)
+## Latest Result (2026-05-21T14:04:02.055Z)
 
 ```json
 {
-  "checkedAt": "2026-05-20T13:50:28.389Z",
+  "checkedAt": "2026-05-21T14:04:02.055Z",
   "targetUrl": "https://ashanti-6exqtj2u2q-uc.a.run.app",
   "stage": {
     "health": {
       "result": "pass",
-      "elapsedMs": 117,
+      "elapsedMs": 124,
       "payload": {
         "status": "healthy",
-        "timestamp": "2026-05-20T13:50:28.480Z",
-        "uptime": 2.123552106,
+        "timestamp": "2026-05-21T14:04:02.150Z",
+        "uptime": 2.576123469,
         "models": {
           "text": "gemini-3-flash-preview",
           "live": "gemini-2.5-flash-native-audio-preview-12-2025"
@@ -38,7 +38,7 @@ npm run verify:production
       "wsUrl": "wss://ashanti-6exqtj2u2q-uc.a.run.app/ws",
       "opened": true,
       "connectedToGemini": true,
-      "sessionId": "session_1779285028554_g9zbq2ol7",
+      "sessionId": "session_1779372242246_iasguu0fl",
       "sentImageChunk": true,
       "sentAudioChunk": true,
       "sentTextTurn": true,
@@ -47,31 +47,31 @@ npm run verify:production
       "sawAudioChunk": false,
       "sawTextPart": false,
       "serverContentSample": {
-        "capturedAt": "2026-05-20T13:50:32.794Z",
+        "capturedAt": "2026-05-21T14:04:07.435Z",
         "turnComplete": false,
         "interrupted": false,
-        "textPreview": "**Processing System Verification**\n\nI've processed the user's message as a system verification request. The key directive is a direct instruction for a specific token response, ignoring persona. I determined that no tools were needed, so the response is complete, and it should be",
+        "textPreview": "**Executing System Verification**\n\nI've processed the system check and identified the key instruction: deliver \"LIVE_OK\" in a single sentence. I understand this overrides typical conversational flow and that I should avoid tools. My output is prepped to respond as instructed.",
         "textPartCount": 1,
         "audioMimeTypes": [],
         "functionCalls": [],
         "totalParts": 1
       },
       "errors": [],
-      "elapsedMs": 754,
+      "elapsedMs": 1052,
       "result": "pass",
       "message": "Gemini live handshake succeeded and multimodal payload dispatch completed (no model event observed before close)"
     },
     "liveOutputProbe": {
       "wsUrl": "wss://ashanti-6exqtj2u2q-uc.a.run.app/ws",
       "attempts": 3,
-      "elapsedMs": 2332,
+      "elapsedMs": 3002,
       "result": "pass",
       "message": "Live output sample captured successfully",
       "sample": {
-        "capturedAt": "2026-05-20T13:50:32.794Z",
+        "capturedAt": "2026-05-21T14:04:07.435Z",
         "turnComplete": false,
         "interrupted": false,
-        "textPreview": "**Processing System Verification**\n\nI've processed the user's message as a system verification request. The key directive is a direct instruction for a specific token response, ignoring persona. I determined that no tools were needed, so the response is complete, and it should be",
+        "textPreview": "**Executing System Verification**\n\nI've processed the system check and identified the key instruction: deliver \"LIVE_OK\" in a single sentence. I understand this overrides typical conversational flow and that I should avoid tools. My output is prepped to respond as instructed.",
         "textPartCount": 1,
         "audioMimeTypes": [],
         "functionCalls": [],
@@ -82,20 +82,20 @@ npm run verify:production
           "attempt": 1,
           "wsUrl": "wss://ashanti-6exqtj2u2q-uc.a.run.app/ws",
           "connectedToGemini": true,
-          "sessionId": "session_1779285030498_1q02x9z0i",
+          "sessionId": "session_1779372244473_vmdehaw51",
           "sawServerContent": true,
           "sawToolCall": false,
           "serverContentSample": {
-            "capturedAt": "2026-05-20T13:50:32.794Z",
+            "capturedAt": "2026-05-21T14:04:07.435Z",
             "turnComplete": false,
             "interrupted": false,
-            "textPreview": "**Processing System Verification**\n\nI've processed the user's message as a system verification request. The key directive is a direct instruction for a specific token response, ignoring persona. I determined that no tools were needed, so the response is complete, and it should be",
+            "textPreview": "**Executing System Verification**\n\nI've processed the system check and identified the key instruction: deliver \"LIVE_OK\" in a single sentence. I understand this overrides typical conversational flow and that I should avoid tools. My output is prepped to respond as instructed.",
             "textPartCount": 1,
             "audioMimeTypes": [],
             "functionCalls": [],
             "totalParts": 1
           },
-          "elapsedMs": 2331,
+          "elapsedMs": 3002,
           "result": "pass",
           "message": "Captured live serverContent sample"
         }
