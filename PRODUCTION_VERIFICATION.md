@@ -4,9 +4,9 @@ This file is auto-generated from the latest successful **Production Verification
 
 ## Source
 
-- Workflow run ID: `26362571434`
-- Workflow run URL: https://github.com/JStoweYouKnow/Ytb/actions/runs/26362571434
-- Generated at: `2026-05-24T13:29:24.485Z`
+- Workflow run ID: `26404293369`
+- Workflow run URL: https://github.com/JStoweYouKnow/Ytb/actions/runs/26404293369
+- Generated at: `2026-05-25T14:00:37.780Z`
 
 ## Command
 
@@ -14,20 +14,20 @@ This file is auto-generated from the latest successful **Production Verification
 npm run verify:production
 ```
 
-## Latest Result (2026-05-24T13:29:09.505Z)
+## Latest Result (2026-05-25T14:00:18.061Z)
 
 ```json
 {
-  "checkedAt": "2026-05-24T13:29:09.505Z",
+  "checkedAt": "2026-05-25T14:00:18.061Z",
   "targetUrl": "https://ashanti-6exqtj2u2q-uc.a.run.app",
   "stage": {
     "health": {
       "result": "pass",
-      "elapsedMs": 121,
+      "elapsedMs": 125,
       "payload": {
         "status": "healthy",
-        "timestamp": "2026-05-24T13:29:09.603Z",
-        "uptime": 2.518082803,
+        "timestamp": "2026-05-25T14:00:18.157Z",
+        "uptime": 2.919829542,
         "models": {
           "text": "gemini-3-flash-preview",
           "live": "gemini-2.5-flash-native-audio-preview-12-2025"
@@ -38,7 +38,7 @@ npm run verify:production
       "wsUrl": "wss://ashanti-6exqtj2u2q-uc.a.run.app/ws",
       "opened": true,
       "connectedToGemini": true,
-      "sessionId": "session_1779629349752_vj6m5zhq1",
+      "sessionId": "session_1779717618239_069hle6sg",
       "sentImageChunk": true,
       "sentAudioChunk": true,
       "sentTextTurn": true,
@@ -47,31 +47,31 @@ npm run verify:production
       "sawAudioChunk": false,
       "sawTextPart": false,
       "serverContentSample": {
-        "capturedAt": "2026-05-24T13:29:14.561Z",
+        "capturedAt": "2026-05-25T14:00:21.989Z",
         "turnComplete": false,
         "interrupted": false,
-        "textPreview": "**Verifying Output Directly**\n\nI've zeroed in on the core instruction: \"LIVE_OK\". My focus is on producing the exact response mandated, while also verifying that the output adheres to the constraints.",
+        "textPreview": "**Verifying Direct Output**\n\nI've determined the message is a system check with precise formatting requirements. It's a direct instruction for a verification output. My focus is now purely on providing the requested response, bypassing my usual persona and agentic behaviors. I ne",
         "textPartCount": 1,
         "audioMimeTypes": [],
         "functionCalls": [],
         "totalParts": 1
       },
       "errors": [],
-      "elapsedMs": 981,
+      "elapsedMs": 948,
       "result": "pass",
       "message": "Gemini live handshake succeeded and multimodal payload dispatch completed (no model event observed before close)"
     },
     "liveOutputProbe": {
       "wsUrl": "wss://ashanti-6exqtj2u2q-uc.a.run.app/ws",
       "attempts": 3,
-      "elapsedMs": 2755,
+      "elapsedMs": 1654,
       "result": "pass",
       "message": "Live output sample captured successfully",
       "sample": {
-        "capturedAt": "2026-05-24T13:29:14.561Z",
+        "capturedAt": "2026-05-25T14:00:21.989Z",
         "turnComplete": false,
         "interrupted": false,
-        "textPreview": "**Verifying Output Directly**\n\nI've zeroed in on the core instruction: \"LIVE_OK\". My focus is on producing the exact response mandated, while also verifying that the output adheres to the constraints.",
+        "textPreview": "**Verifying Direct Output**\n\nI've determined the message is a system check with precise formatting requirements. It's a direct instruction for a verification output. My focus is now purely on providing the requested response, bypassing my usual persona and agentic behaviors. I ne",
         "textPartCount": 1,
         "audioMimeTypes": [],
         "functionCalls": [],
@@ -82,20 +82,20 @@ npm run verify:production
           "attempt": 1,
           "wsUrl": "wss://ashanti-6exqtj2u2q-uc.a.run.app/ws",
           "connectedToGemini": true,
-          "sessionId": "session_1779629351852_xzjnizp42",
+          "sessionId": "session_1779717620379_ydv6ect4v",
           "sawServerContent": true,
           "sawToolCall": false,
           "serverContentSample": {
-            "capturedAt": "2026-05-24T13:29:14.561Z",
+            "capturedAt": "2026-05-25T14:00:21.989Z",
             "turnComplete": false,
             "interrupted": false,
-            "textPreview": "**Verifying Output Directly**\n\nI've zeroed in on the core instruction: \"LIVE_OK\". My focus is on producing the exact response mandated, while also verifying that the output adheres to the constraints.",
+            "textPreview": "**Verifying Direct Output**\n\nI've determined the message is a system check with precise formatting requirements. It's a direct instruction for a verification output. My focus is now purely on providing the requested response, bypassing my usual persona and agentic behaviors. I ne",
             "textPartCount": 1,
             "audioMimeTypes": [],
             "functionCalls": [],
             "totalParts": 1
           },
-          "elapsedMs": 2754,
+          "elapsedMs": 1654,
           "result": "pass",
           "message": "Captured live serverContent sample"
         }
