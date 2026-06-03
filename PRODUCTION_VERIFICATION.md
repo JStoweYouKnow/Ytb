@@ -4,9 +4,9 @@ This file is auto-generated from the latest successful **Production Verification
 
 ## Source
 
-- Workflow run ID: `26826128091`
-- Workflow run URL: https://github.com/JStoweYouKnow/Ytb/actions/runs/26826128091
-- Generated at: `2026-06-02T14:24:04.771Z`
+- Workflow run ID: `26891567065`
+- Workflow run URL: https://github.com/JStoweYouKnow/Ytb/actions/runs/26891567065
+- Generated at: `2026-06-03T14:31:00.647Z`
 
 ## Command
 
@@ -14,20 +14,20 @@ This file is auto-generated from the latest successful **Production Verification
 npm run verify:production
 ```
 
-## Latest Result (2026-06-02T14:23:41.729Z)
+## Latest Result (2026-06-03T14:30:38.835Z)
 
 ```json
 {
-  "checkedAt": "2026-06-02T14:23:41.729Z",
+  "checkedAt": "2026-06-03T14:30:38.835Z",
   "targetUrl": "https://ashanti-6exqtj2u2q-uc.a.run.app",
   "stage": {
     "health": {
       "result": "pass",
-      "elapsedMs": 117,
+      "elapsedMs": 121,
       "payload": {
         "status": "healthy",
-        "timestamp": "2026-06-02T14:23:41.823Z",
-        "uptime": 3.050339582,
+        "timestamp": "2026-06-03T14:30:38.933Z",
+        "uptime": 3.725679672,
         "models": {
           "text": "gemini-3-flash-preview",
           "live": "gemini-2.5-flash-native-audio-preview-12-2025"
@@ -38,7 +38,7 @@ npm run verify:production
       "wsUrl": "wss://ashanti-6exqtj2u2q-uc.a.run.app/ws",
       "opened": true,
       "connectedToGemini": true,
-      "sessionId": "session_1780410221923_x1vc2w1hv",
+      "sessionId": "session_1780497039015_31nm5lal2",
       "sentImageChunk": true,
       "sentAudioChunk": true,
       "sentTextTurn": true,
@@ -47,31 +47,31 @@ npm run verify:production
       "sawAudioChunk": false,
       "sawTextPart": false,
       "serverContentSample": {
-        "capturedAt": "2026-06-02T14:23:46.510Z",
+        "capturedAt": "2026-06-03T14:30:43.089Z",
         "turnComplete": false,
         "interrupted": false,
-        "textPreview": "**Complying with the Instruction**\n\nI've determined the user requires an immediate, specific response: \"LIVE_OK\". My analysis confirms the instruction's directness. I'm operating under the specific directive to comply with the minimal token output. The response is constructed and",
+        "textPreview": "**Analyzing System Instruction**\n\nI've determined this is a system check, not a user seeking wellness guidance. The instruction is explicit: respond with a specific token in a single sentence. I understand the importance of strict adherence to the given format.",
         "textPartCount": 1,
         "audioMimeTypes": [],
         "functionCalls": [],
         "totalParts": 1
       },
       "errors": [],
-      "elapsedMs": 1178,
+      "elapsedMs": 1360,
       "result": "pass",
       "message": "Gemini live handshake succeeded and multimodal payload dispatch completed (no model event observed before close)"
     },
     "liveOutputProbe": {
       "wsUrl": "wss://ashanti-6exqtj2u2q-uc.a.run.app/ws",
       "attempts": 3,
-      "elapsedMs": 2286,
+      "elapsedMs": 1571,
       "result": "pass",
       "message": "Live output sample captured successfully",
       "sample": {
-        "capturedAt": "2026-06-02T14:23:46.510Z",
+        "capturedAt": "2026-06-03T14:30:43.089Z",
         "turnComplete": false,
         "interrupted": false,
-        "textPreview": "**Complying with the Instruction**\n\nI've determined the user requires an immediate, specific response: \"LIVE_OK\". My analysis confirms the instruction's directness. I'm operating under the specific directive to comply with the minimal token output. The response is constructed and",
+        "textPreview": "**Analyzing System Instruction**\n\nI've determined this is a system check, not a user seeking wellness guidance. The instruction is explicit: respond with a specific token in a single sentence. I understand the importance of strict adherence to the given format.",
         "textPartCount": 1,
         "audioMimeTypes": [],
         "functionCalls": [],
@@ -82,20 +82,20 @@ npm run verify:production
           "attempt": 1,
           "wsUrl": "wss://ashanti-6exqtj2u2q-uc.a.run.app/ws",
           "connectedToGemini": true,
-          "sessionId": "session_1780410224261_3czvx40k2",
+          "sessionId": "session_1780497041563_6zv8e47x2",
           "sawServerContent": true,
           "sawToolCall": false,
           "serverContentSample": {
-            "capturedAt": "2026-06-02T14:23:46.510Z",
+            "capturedAt": "2026-06-03T14:30:43.089Z",
             "turnComplete": false,
             "interrupted": false,
-            "textPreview": "**Complying with the Instruction**\n\nI've determined the user requires an immediate, specific response: \"LIVE_OK\". My analysis confirms the instruction's directness. I'm operating under the specific directive to comply with the minimal token output. The response is constructed and",
+            "textPreview": "**Analyzing System Instruction**\n\nI've determined this is a system check, not a user seeking wellness guidance. The instruction is explicit: respond with a specific token in a single sentence. I understand the importance of strict adherence to the given format.",
             "textPartCount": 1,
             "audioMimeTypes": [],
             "functionCalls": [],
             "totalParts": 1
           },
-          "elapsedMs": 2286,
+          "elapsedMs": 1571,
           "result": "pass",
           "message": "Captured live serverContent sample"
         }
