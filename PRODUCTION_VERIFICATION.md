@@ -4,9 +4,9 @@ This file is auto-generated from the latest successful **Production Verification
 
 ## Source
 
-- Workflow run ID: `26956515651`
-- Workflow run URL: https://github.com/JStoweYouKnow/Ytb/actions/runs/26956515651
-- Generated at: `2026-06-04T14:00:18.468Z`
+- Workflow run ID: `27019099556`
+- Workflow run URL: https://github.com/JStoweYouKnow/Ytb/actions/runs/27019099556
+- Generated at: `2026-06-05T13:56:39.593Z`
 
 ## Command
 
@@ -14,20 +14,20 @@ This file is auto-generated from the latest successful **Production Verification
 npm run verify:production
 ```
 
-## Latest Result (2026-06-04T13:59:58.362Z)
+## Latest Result (2026-06-05T13:56:18.682Z)
 
 ```json
 {
-  "checkedAt": "2026-06-04T13:59:58.362Z",
+  "checkedAt": "2026-06-05T13:56:18.682Z",
   "targetUrl": "https://ashanti-6exqtj2u2q-uc.a.run.app",
   "stage": {
     "health": {
       "result": "pass",
-      "elapsedMs": 133,
+      "elapsedMs": 120,
       "payload": {
         "status": "healthy",
-        "timestamp": "2026-06-04T13:59:58.473Z",
-        "uptime": 3.402178412,
+        "timestamp": "2026-06-05T13:56:18.775Z",
+        "uptime": 3.625776876,
         "models": {
           "text": "gemini-3-flash-preview",
           "live": "gemini-2.5-flash-native-audio-preview-12-2025"
@@ -38,7 +38,7 @@ npm run verify:production
       "wsUrl": "wss://ashanti-6exqtj2u2q-uc.a.run.app/ws",
       "opened": true,
       "connectedToGemini": true,
-      "sessionId": "session_1780581598565_j0p82ru0l",
+      "sessionId": "session_1780667778849_197iumouw",
       "sentImageChunk": true,
       "sentAudioChunk": true,
       "sentTextTurn": true,
@@ -47,31 +47,31 @@ npm run verify:production
       "sawAudioChunk": false,
       "sawTextPart": false,
       "serverContentSample": {
-        "capturedAt": "2026-06-04T14:00:02.712Z",
+        "capturedAt": "2026-06-05T13:56:23.232Z",
         "turnComplete": false,
         "interrupted": false,
-        "textPreview": "**Responding to Command**\n\nI've processed the incoming instruction as a system verification request. My established protocols, even agentic ones, are overridden by this direct command. The directive to output \"LIVE_OK\" in a single sentence is clear, and I'm generating that respon",
+        "textPreview": "**Complying with Instructions**\n\nI've processed the direct instruction for the system check. My focus is now on delivering the specific response requested. I am prioritizing a concise, direct answer that meets the constraint of including `LIVE_OK` in a single short sentence, over",
         "textPartCount": 1,
         "audioMimeTypes": [],
         "functionCalls": [],
         "totalParts": 1
       },
       "errors": [],
-      "elapsedMs": 1055,
+      "elapsedMs": 1265,
       "result": "pass",
       "message": "Gemini live handshake succeeded and multimodal payload dispatch completed (no model event observed before close)"
     },
     "liveOutputProbe": {
       "wsUrl": "wss://ashanti-6exqtj2u2q-uc.a.run.app/ws",
       "attempts": 3,
-      "elapsedMs": 1960,
+      "elapsedMs": 1963,
       "result": "pass",
       "message": "Live output sample captured successfully",
       "sample": {
-        "capturedAt": "2026-06-04T14:00:02.712Z",
+        "capturedAt": "2026-06-05T13:56:23.232Z",
         "turnComplete": false,
         "interrupted": false,
-        "textPreview": "**Responding to Command**\n\nI've processed the incoming instruction as a system verification request. My established protocols, even agentic ones, are overridden by this direct command. The directive to output \"LIVE_OK\" in a single sentence is clear, and I'm generating that respon",
+        "textPreview": "**Complying with Instructions**\n\nI've processed the direct instruction for the system check. My focus is now on delivering the specific response requested. I am prioritizing a concise, direct answer that meets the constraint of including `LIVE_OK` in a single short sentence, over",
         "textPartCount": 1,
         "audioMimeTypes": [],
         "functionCalls": [],
@@ -82,20 +82,20 @@ npm run verify:production
           "attempt": 1,
           "wsUrl": "wss://ashanti-6exqtj2u2q-uc.a.run.app/ws",
           "connectedToGemini": true,
-          "sessionId": "session_1780581600824_9iy1bmnox",
+          "sessionId": "session_1780667781310_v8sbxgzk3",
           "sawServerContent": true,
           "sawToolCall": false,
           "serverContentSample": {
-            "capturedAt": "2026-06-04T14:00:02.712Z",
+            "capturedAt": "2026-06-05T13:56:23.232Z",
             "turnComplete": false,
             "interrupted": false,
-            "textPreview": "**Responding to Command**\n\nI've processed the incoming instruction as a system verification request. My established protocols, even agentic ones, are overridden by this direct command. The directive to output \"LIVE_OK\" in a single sentence is clear, and I'm generating that respon",
+            "textPreview": "**Complying with Instructions**\n\nI've processed the direct instruction for the system check. My focus is now on delivering the specific response requested. I am prioritizing a concise, direct answer that meets the constraint of including `LIVE_OK` in a single short sentence, over",
             "textPartCount": 1,
             "audioMimeTypes": [],
             "functionCalls": [],
             "totalParts": 1
           },
-          "elapsedMs": 1960,
+          "elapsedMs": 1963,
           "result": "pass",
           "message": "Captured live serverContent sample"
         }
