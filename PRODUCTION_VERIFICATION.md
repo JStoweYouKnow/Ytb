@@ -4,9 +4,9 @@ This file is auto-generated from the latest successful **Production Verification
 
 ## Source
 
-- Workflow run ID: `27555420824`
-- Workflow run URL: https://github.com/JStoweYouKnow/Ytb/actions/runs/27555420824
-- Generated at: `2026-06-15T15:01:33.198Z`
+- Workflow run ID: `27625267271`
+- Workflow run URL: https://github.com/JStoweYouKnow/Ytb/actions/runs/27625267271
+- Generated at: `2026-06-16T14:35:52.268Z`
 
 ## Command
 
@@ -14,20 +14,20 @@ This file is auto-generated from the latest successful **Production Verification
 npm run verify:production
 ```
 
-## Latest Result (2026-06-15T15:01:08.791Z)
+## Latest Result (2026-06-16T14:35:22.180Z)
 
 ```json
 {
-  "checkedAt": "2026-06-15T15:01:08.791Z",
+  "checkedAt": "2026-06-16T14:35:22.180Z",
   "targetUrl": "https://ashanti-6exqtj2u2q-uc.a.run.app",
   "stage": {
     "health": {
       "result": "pass",
-      "elapsedMs": 142,
+      "elapsedMs": 152,
       "payload": {
         "status": "healthy",
-        "timestamp": "2026-06-15T15:01:08.902Z",
-        "uptime": 3.335679702,
+        "timestamp": "2026-06-16T14:35:22.295Z",
+        "uptime": 2.856781645,
         "models": {
           "text": "gemini-3-flash-preview",
           "live": "gemini-2.5-flash-native-audio-preview-12-2025"
@@ -38,7 +38,7 @@ npm run verify:production
       "wsUrl": "wss://ashanti-6exqtj2u2q-uc.a.run.app/ws",
       "opened": true,
       "connectedToGemini": true,
-      "sessionId": "session_1781535669004_se37powc7",
+      "sessionId": "session_1781620522399_jogus57op",
       "sentImageChunk": true,
       "sentAudioChunk": true,
       "sentTextTurn": true,
@@ -47,31 +47,31 @@ npm run verify:production
       "sawAudioChunk": false,
       "sawTextPart": false,
       "serverContentSample": {
-        "capturedAt": "2026-06-15T15:01:12.836Z",
+        "capturedAt": "2026-06-16T14:35:26.214Z",
         "turnComplete": false,
         "interrupted": false,
-        "textPreview": "**Generating System Response**\n\nI've processed the user's input, noting it's a system check requiring a specific, concise response. My current plan involves directly producing the exact required token – LIVE_OK. No external tools are necessary for this simple task.",
+        "textPreview": "**Verifying system output**\n\nI've processed the user's input, recognizing it's a system check. The instruction is explicit – provide \"LIVE_OK.\" I'll execute the task without needing any wellness checks. It's a straightforward verification and I will answer with the requested toke",
         "textPartCount": 1,
         "audioMimeTypes": [],
         "functionCalls": [],
         "totalParts": 1
       },
       "errors": [],
-      "elapsedMs": 1256,
+      "elapsedMs": 1024,
       "result": "pass",
       "message": "Gemini live handshake succeeded and multimodal payload dispatch completed (no model event observed before close)"
     },
     "liveOutputProbe": {
       "wsUrl": "wss://ashanti-6exqtj2u2q-uc.a.run.app/ws",
       "attempts": 3,
-      "elapsedMs": 1445,
+      "elapsedMs": 1656,
       "result": "pass",
       "message": "Live output sample captured successfully",
       "sample": {
-        "capturedAt": "2026-06-15T15:01:12.836Z",
+        "capturedAt": "2026-06-16T14:35:26.214Z",
         "turnComplete": false,
         "interrupted": false,
-        "textPreview": "**Generating System Response**\n\nI've processed the user's input, noting it's a system check requiring a specific, concise response. My current plan involves directly producing the exact required token – LIVE_OK. No external tools are necessary for this simple task.",
+        "textPreview": "**Verifying system output**\n\nI've processed the user's input, recognizing it's a system check. The instruction is explicit – provide \"LIVE_OK.\" I'll execute the task without needing any wellness checks. It's a straightforward verification and I will answer with the requested toke",
         "textPartCount": 1,
         "audioMimeTypes": [],
         "functionCalls": [],
@@ -82,20 +82,20 @@ npm run verify:production
           "attempt": 1,
           "wsUrl": "wss://ashanti-6exqtj2u2q-uc.a.run.app/ws",
           "connectedToGemini": true,
-          "sessionId": "session_1781535671452_s85xgy9se",
+          "sessionId": "session_1781620524625_etc482h7t",
           "sawServerContent": true,
           "sawToolCall": false,
           "serverContentSample": {
-            "capturedAt": "2026-06-15T15:01:12.836Z",
+            "capturedAt": "2026-06-16T14:35:26.214Z",
             "turnComplete": false,
             "interrupted": false,
-            "textPreview": "**Generating System Response**\n\nI've processed the user's input, noting it's a system check requiring a specific, concise response. My current plan involves directly producing the exact required token – LIVE_OK. No external tools are necessary for this simple task.",
+            "textPreview": "**Verifying system output**\n\nI've processed the user's input, recognizing it's a system check. The instruction is explicit – provide \"LIVE_OK.\" I'll execute the task without needing any wellness checks. It's a straightforward verification and I will answer with the requested toke",
             "textPartCount": 1,
             "audioMimeTypes": [],
             "functionCalls": [],
             "totalParts": 1
           },
-          "elapsedMs": 1445,
+          "elapsedMs": 1655,
           "result": "pass",
           "message": "Captured live serverContent sample"
         }
