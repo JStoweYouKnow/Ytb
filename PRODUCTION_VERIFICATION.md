@@ -4,9 +4,9 @@ This file is auto-generated from the latest successful **Production Verification
 
 ## Source
 
-- Workflow run ID: `27695191123`
-- Workflow run URL: https://github.com/JStoweYouKnow/Ytb/actions/runs/27695191123
-- Generated at: `2026-06-17T14:11:16.201Z`
+- Workflow run ID: `27764824754`
+- Workflow run URL: https://github.com/JStoweYouKnow/Ytb/actions/runs/27764824754
+- Generated at: `2026-06-18T14:01:10.911Z`
 
 ## Command
 
@@ -14,20 +14,20 @@ This file is auto-generated from the latest successful **Production Verification
 npm run verify:production
 ```
 
-## Latest Result (2026-06-17T14:10:54.565Z)
+## Latest Result (2026-06-18T14:00:50.578Z)
 
 ```json
 {
-  "checkedAt": "2026-06-17T14:10:54.565Z",
+  "checkedAt": "2026-06-18T14:00:50.578Z",
   "targetUrl": "https://ashanti-6exqtj2u2q-uc.a.run.app",
   "stage": {
     "health": {
       "result": "pass",
-      "elapsedMs": 116,
+      "elapsedMs": 136,
       "payload": {
         "status": "healthy",
-        "timestamp": "2026-06-17T14:10:54.658Z",
-        "uptime": 3.215117127,
+        "timestamp": "2026-06-18T14:00:50.680Z",
+        "uptime": 3.27983879,
         "models": {
           "text": "gemini-3-flash-preview",
           "live": "gemini-2.5-flash-native-audio-preview-12-2025"
@@ -38,7 +38,7 @@ npm run verify:production
       "wsUrl": "wss://ashanti-6exqtj2u2q-uc.a.run.app/ws",
       "opened": true,
       "connectedToGemini": true,
-      "sessionId": "session_1781705454727_lbo2290aw",
+      "sessionId": "session_1781791250777_3obxc8436",
       "sentImageChunk": true,
       "sentAudioChunk": true,
       "sentTextTurn": true,
@@ -47,31 +47,31 @@ npm run verify:production
       "sawAudioChunk": false,
       "sawTextPart": false,
       "serverContentSample": {
-        "capturedAt": "2026-06-17T14:10:58.681Z",
+        "capturedAt": "2026-06-18T14:00:54.959Z",
         "turnComplete": false,
         "interrupted": false,
-        "textPreview": "**Verifying System Output**\n\nMy primary focus is on strict adherence to the system check. I've analyzed the prompt and determined the appropriate, and only acceptable, response is \"LIVE_OK\". This constraint overrides any general knowledge or persona considerations. I will now out",
+        "textPreview": "**Confirming System Response**\n\nI've processed the system verification prompt and understand the required direct response: a single sentence including the token \"LIVE_OK.\" My function is simply to generate this response, without any extraneous actions or external tool calls. The ",
         "textPartCount": 1,
         "audioMimeTypes": [],
         "functionCalls": [],
         "totalParts": 1
       },
       "errors": [],
-      "elapsedMs": 1256,
+      "elapsedMs": 1312,
       "result": "pass",
       "message": "Gemini live handshake succeeded and multimodal payload dispatch completed (no model event observed before close)"
     },
     "liveOutputProbe": {
       "wsUrl": "wss://ashanti-6exqtj2u2q-uc.a.run.app/ws",
       "attempts": 3,
-      "elapsedMs": 1541,
+      "elapsedMs": 1733,
       "result": "pass",
       "message": "Live output sample captured successfully",
       "sample": {
-        "capturedAt": "2026-06-17T14:10:58.681Z",
+        "capturedAt": "2026-06-18T14:00:54.959Z",
         "turnComplete": false,
         "interrupted": false,
-        "textPreview": "**Verifying System Output**\n\nMy primary focus is on strict adherence to the system check. I've analyzed the prompt and determined the appropriate, and only acceptable, response is \"LIVE_OK\". This constraint overrides any general knowledge or persona considerations. I will now out",
+        "textPreview": "**Confirming System Response**\n\nI've processed the system verification prompt and understand the required direct response: a single sentence including the token \"LIVE_OK.\" My function is simply to generate this response, without any extraneous actions or external tool calls. The ",
         "textPartCount": 1,
         "audioMimeTypes": [],
         "functionCalls": [],
@@ -82,20 +82,20 @@ npm run verify:production
           "attempt": 1,
           "wsUrl": "wss://ashanti-6exqtj2u2q-uc.a.run.app/ws",
           "connectedToGemini": true,
-          "sessionId": "session_1781705457178_xlnjb8tug",
+          "sessionId": "session_1781791253274_o33m91vof",
           "sawServerContent": true,
           "sawToolCall": false,
           "serverContentSample": {
-            "capturedAt": "2026-06-17T14:10:58.681Z",
+            "capturedAt": "2026-06-18T14:00:54.959Z",
             "turnComplete": false,
             "interrupted": false,
-            "textPreview": "**Verifying System Output**\n\nMy primary focus is on strict adherence to the system check. I've analyzed the prompt and determined the appropriate, and only acceptable, response is \"LIVE_OK\". This constraint overrides any general knowledge or persona considerations. I will now out",
+            "textPreview": "**Confirming System Response**\n\nI've processed the system verification prompt and understand the required direct response: a single sentence including the token \"LIVE_OK.\" My function is simply to generate this response, without any extraneous actions or external tool calls. The ",
             "textPartCount": 1,
             "audioMimeTypes": [],
             "functionCalls": [],
             "totalParts": 1
           },
-          "elapsedMs": 1541,
+          "elapsedMs": 1732,
           "result": "pass",
           "message": "Captured live serverContent sample"
         }
