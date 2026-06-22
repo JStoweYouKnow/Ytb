@@ -4,9 +4,9 @@ This file is auto-generated from the latest successful **Production Verification
 
 ## Source
 
-- Workflow run ID: `27905928485`
-- Workflow run URL: https://github.com/JStoweYouKnow/Ytb/actions/runs/27905928485
-- Generated at: `2026-06-21T13:32:07.313Z`
+- Workflow run ID: `27961586879`
+- Workflow run URL: https://github.com/JStoweYouKnow/Ytb/actions/runs/27961586879
+- Generated at: `2026-06-22T14:51:23.989Z`
 
 ## Command
 
@@ -14,20 +14,20 @@ This file is auto-generated from the latest successful **Production Verification
 npm run verify:production
 ```
 
-## Latest Result (2026-06-21T13:31:44.728Z)
+## Latest Result (2026-06-22T14:50:58.941Z)
 
 ```json
 {
-  "checkedAt": "2026-06-21T13:31:44.728Z",
+  "checkedAt": "2026-06-22T14:50:58.941Z",
   "targetUrl": "https://ashanti-6exqtj2u2q-uc.a.run.app",
   "stage": {
     "health": {
       "result": "pass",
-      "elapsedMs": 139,
+      "elapsedMs": 138,
       "payload": {
         "status": "healthy",
-        "timestamp": "2026-06-21T13:31:44.828Z",
-        "uptime": 2.845578781,
+        "timestamp": "2026-06-22T14:50:59.051Z",
+        "uptime": 2.998570441,
         "models": {
           "text": "gemini-3-flash-preview",
           "live": "gemini-2.5-flash-native-audio-preview-12-2025"
@@ -38,7 +38,7 @@ npm run verify:production
       "wsUrl": "wss://ashanti-6exqtj2u2q-uc.a.run.app/ws",
       "opened": true,
       "connectedToGemini": true,
-      "sessionId": "session_1782048704923_cdlsk909a",
+      "sessionId": "session_1782139859145_a5ais9ibn",
       "sentImageChunk": true,
       "sentAudioChunk": true,
       "sentTextTurn": true,
@@ -47,31 +47,31 @@ npm run verify:production
       "sawAudioChunk": false,
       "sawTextPart": false,
       "serverContentSample": {
-        "capturedAt": "2026-06-21T13:31:48.678Z",
+        "capturedAt": "2026-06-22T14:51:03.572Z",
         "turnComplete": false,
         "interrupted": false,
-        "textPreview": "**Confirming System Verification**\n\nI've processed the verification prompt and its constraints. I understand that my response must be the single token LIVE_OK, and I am avoiding any complex reasoning or tool calls. My focus is on delivering a concise answer.",
+        "textPreview": "**Prioritizing Direct Response**\n\nI've zeroed in on the core directive: delivering the `LIVE_OK` token in a singular sentence. My analysis shows this is a system check requiring a precise, constrained response. No other behavior or analysis will be applied other than producing a ",
         "textPartCount": 1,
         "audioMimeTypes": [],
         "functionCalls": [],
         "totalParts": 1
       },
       "errors": [],
-      "elapsedMs": 1095,
+      "elapsedMs": 1228,
       "result": "pass",
       "message": "Gemini live handshake succeeded and multimodal payload dispatch completed (no model event observed before close)"
     },
     "liveOutputProbe": {
       "wsUrl": "wss://ashanti-6exqtj2u2q-uc.a.run.app/ws",
       "attempts": 3,
-      "elapsedMs": 1516,
+      "elapsedMs": 2063,
       "result": "pass",
       "message": "Live output sample captured successfully",
       "sample": {
-        "capturedAt": "2026-06-21T13:31:48.678Z",
+        "capturedAt": "2026-06-22T14:51:03.572Z",
         "turnComplete": false,
         "interrupted": false,
-        "textPreview": "**Confirming System Verification**\n\nI've processed the verification prompt and its constraints. I understand that my response must be the single token LIVE_OK, and I am avoiding any complex reasoning or tool calls. My focus is on delivering a concise answer.",
+        "textPreview": "**Prioritizing Direct Response**\n\nI've zeroed in on the core directive: delivering the `LIVE_OK` token in a singular sentence. My analysis shows this is a system check requiring a precise, constrained response. No other behavior or analysis will be applied other than producing a ",
         "textPartCount": 1,
         "audioMimeTypes": [],
         "functionCalls": [],
@@ -82,20 +82,20 @@ npm run verify:production
           "attempt": 1,
           "wsUrl": "wss://ashanti-6exqtj2u2q-uc.a.run.app/ws",
           "connectedToGemini": true,
-          "sessionId": "session_1782048707212_2e8tq0uam",
+          "sessionId": "session_1782139861570_03l8uyz48",
           "sawServerContent": true,
           "sawToolCall": false,
           "serverContentSample": {
-            "capturedAt": "2026-06-21T13:31:48.678Z",
+            "capturedAt": "2026-06-22T14:51:03.572Z",
             "turnComplete": false,
             "interrupted": false,
-            "textPreview": "**Confirming System Verification**\n\nI've processed the verification prompt and its constraints. I understand that my response must be the single token LIVE_OK, and I am avoiding any complex reasoning or tool calls. My focus is on delivering a concise answer.",
+            "textPreview": "**Prioritizing Direct Response**\n\nI've zeroed in on the core directive: delivering the `LIVE_OK` token in a singular sentence. My analysis shows this is a system check requiring a precise, constrained response. No other behavior or analysis will be applied other than producing a ",
             "textPartCount": 1,
             "audioMimeTypes": [],
             "functionCalls": [],
             "totalParts": 1
           },
-          "elapsedMs": 1514,
+          "elapsedMs": 2063,
           "result": "pass",
           "message": "Captured live serverContent sample"
         }
