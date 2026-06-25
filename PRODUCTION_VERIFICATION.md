@@ -4,9 +4,9 @@ This file is auto-generated from the latest successful **Production Verification
 
 ## Source
 
-- Workflow run ID: `28102806693`
-- Workflow run URL: https://github.com/JStoweYouKnow/Ytb/actions/runs/28102806693
-- Generated at: `2026-06-24T13:41:30.445Z`
+- Workflow run ID: `28174306222`
+- Workflow run URL: https://github.com/JStoweYouKnow/Ytb/actions/runs/28174306222
+- Generated at: `2026-06-25T13:39:59.507Z`
 
 ## Command
 
@@ -14,20 +14,20 @@ This file is auto-generated from the latest successful **Production Verification
 npm run verify:production
 ```
 
-## Latest Result (2026-06-24T13:41:14.453Z)
+## Latest Result (2026-06-25T13:39:43.676Z)
 
 ```json
 {
-  "checkedAt": "2026-06-24T13:41:14.453Z",
+  "checkedAt": "2026-06-25T13:39:43.676Z",
   "targetUrl": "https://ashanti-6exqtj2u2q-uc.a.run.app",
   "stage": {
     "health": {
       "result": "pass",
-      "elapsedMs": 139,
+      "elapsedMs": 115,
       "payload": {
         "status": "healthy",
-        "timestamp": "2026-06-24T13:41:14.565Z",
-        "uptime": 3.185111784,
+        "timestamp": "2026-06-25T13:39:43.768Z",
+        "uptime": 3.669818816,
         "models": {
           "text": "gemini-3-flash-preview",
           "live": "gemini-2.5-flash-native-audio-preview-12-2025"
@@ -38,68 +38,32 @@ npm run verify:production
       "wsUrl": "wss://ashanti-6exqtj2u2q-uc.a.run.app/ws",
       "opened": true,
       "connectedToGemini": true,
-      "sessionId": "session_1782308474669_n6sr9na41",
+      "sessionId": "session_1782394783839_341y45qyx",
       "sentImageChunk": true,
       "sentAudioChunk": true,
       "sentTextTurn": true,
       "sawServerContent": true,
       "sawToolCall": false,
       "sawAudioChunk": false,
-      "sawTextPart": false,
+      "sawTextPart": true,
       "serverContentSample": {
-        "capturedAt": "2026-06-24T13:41:18.868Z",
+        "capturedAt": "2026-06-25T13:39:45.222Z",
         "turnComplete": false,
         "interrupted": false,
-        "textPreview": "**Generating Verification Response**\n\nI've processed the verification input, and the core instruction to provide \"LIVE_OK\" is clear. My focus is solely on delivering this specific output, avoiding any additional steps or dialogue. I'm ready to produce the required response.",
+        "textPreview": "**Confirming System Status**\n\nLIVE_OK, I'm confirming system status with a quick, energetic reply to the live verification prompt.",
         "textPartCount": 1,
         "audioMimeTypes": [],
         "functionCalls": [],
         "totalParts": 1
       },
       "errors": [],
-      "elapsedMs": 1256,
+      "elapsedMs": 1430,
       "result": "pass",
-      "message": "Gemini live handshake succeeded and multimodal payload dispatch completed (no model event observed before close)"
+      "message": "Received live model event from Gemini session"
     },
     "liveOutputProbe": {
-      "wsUrl": "wss://ashanti-6exqtj2u2q-uc.a.run.app/ws",
-      "attempts": 3,
-      "elapsedMs": 1819,
-      "result": "pass",
-      "message": "Live output sample captured successfully",
-      "sample": {
-        "capturedAt": "2026-06-24T13:41:18.868Z",
-        "turnComplete": false,
-        "interrupted": false,
-        "textPreview": "**Generating Verification Response**\n\nI've processed the verification input, and the core instruction to provide \"LIVE_OK\" is clear. My focus is solely on delivering this specific output, avoiding any additional steps or dialogue. I'm ready to produce the required response.",
-        "textPartCount": 1,
-        "audioMimeTypes": [],
-        "functionCalls": [],
-        "totalParts": 1
-      },
-      "attemptsDetail": [
-        {
-          "attempt": 1,
-          "wsUrl": "wss://ashanti-6exqtj2u2q-uc.a.run.app/ws",
-          "connectedToGemini": true,
-          "sessionId": "session_1782308477114_khn4r2vrh",
-          "sawServerContent": true,
-          "sawToolCall": false,
-          "serverContentSample": {
-            "capturedAt": "2026-06-24T13:41:18.868Z",
-            "turnComplete": false,
-            "interrupted": false,
-            "textPreview": "**Generating Verification Response**\n\nI've processed the verification input, and the core instruction to provide \"LIVE_OK\" is clear. My focus is solely on delivering this specific output, avoiding any additional steps or dialogue. I'm ready to produce the required response.",
-            "textPartCount": 1,
-            "audioMimeTypes": [],
-            "functionCalls": [],
-            "totalParts": 1
-          },
-          "elapsedMs": 1819,
-          "result": "pass",
-          "message": "Captured live serverContent sample"
-        }
-      ]
+      "result": "skipped",
+      "message": "Live output sample already captured in main websocket check"
     }
   },
   "result": "pass"
