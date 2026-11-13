@@ -4,9 +4,9 @@ This file is auto-generated from the latest successful **Production Verification
 
 ## Source
 
-- Workflow run ID: `43223233572`
-- Workflow run URL: https://github.com/JStoweYouKnow/Ytb/actions/runs/43223233572
-- Generated at: `2026-11-12T13:01:40.993Z`
+- Workflow run ID: `43430030805`
+- Workflow run URL: https://github.com/JStoweYouKnow/Ytb/actions/runs/43430030805
+- Generated at: `2026-11-13T13:01:58.835Z`
 
 ## Command
 
@@ -14,20 +14,20 @@ This file is auto-generated from the latest successful **Production Verification
 npm run verify:production
 ```
 
-## Latest Result (2026-11-12T13:01:23.987Z)
+## Latest Result (2026-11-13T13:01:44.477Z)
 
 ```json
 {
-  "checkedAt": "2026-11-12T13:01:23.987Z",
+  "checkedAt": "2026-11-13T13:01:44.477Z",
   "targetUrl": "https://ashanti-6exqtj2u2q-uc.a.run.app",
   "stage": {
     "health": {
       "result": "pass",
-      "elapsedMs": 116,
+      "elapsedMs": 109,
       "payload": {
         "status": "healthy",
-        "timestamp": "2026-11-12T13:01:24.081Z",
-        "uptime": 3.743453183,
+        "timestamp": "2026-11-13T13:01:44.571Z",
+        "uptime": 2.980186409,
         "models": {
           "text": "gemini-3-flash-preview",
           "live": "gemini-2.5-flash-native-audio-preview-12-2025"
@@ -38,7 +38,7 @@ npm run verify:production
       "wsUrl": "wss://ashanti-6exqtj2u2q-uc.a.run.app/ws",
       "opened": true,
       "connectedToGemini": true,
-      "sessionId": "session_1794488484178_47hjwvo8t",
+      "sessionId": "session_1794574904640_79ew61lyh",
       "sentImageChunk": true,
       "sentAudioChunk": true,
       "sentTextTurn": true,
@@ -48,14 +48,14 @@ npm run verify:production
       "sawTextPart": false,
       "serverContentSample": null,
       "errors": [],
-      "elapsedMs": 1035,
+      "elapsedMs": 811,
       "result": "pass",
       "message": "Gemini live handshake succeeded and multimodal payload dispatch completed (no model event observed before close)"
     },
     "liveOutputProbe": {
       "wsUrl": "wss://ashanti-6exqtj2u2q-uc.a.run.app/ws",
       "attempts": 3,
-      "elapsedMs": 480,
+      "elapsedMs": 348,
       "result": "fail",
       "message": "No live output sample captured in probe attempts",
       "sample": null,
@@ -64,11 +64,11 @@ npm run verify:production
           "attempt": 1,
           "wsUrl": "wss://ashanti-6exqtj2u2q-uc.a.run.app/ws",
           "connectedToGemini": true,
-          "sessionId": "session_1794488486408_ieu5s48hb",
+          "sessionId": "session_1794574906642_wnx5m5q6y",
           "sawServerContent": false,
           "sawToolCall": false,
           "serverContentSample": null,
-          "elapsedMs": 163,
+          "elapsedMs": 112,
           "result": "fail",
           "message": "Probe socket closed before model output (code=1000, reason=Session ended)"
         },
@@ -76,11 +76,11 @@ npm run verify:production
           "attempt": 2,
           "wsUrl": "wss://ashanti-6exqtj2u2q-uc.a.run.app/ws",
           "connectedToGemini": true,
-          "sessionId": "session_1794488486563_qz89jws67",
+          "sessionId": "session_1794574906751_xpm9rzlik",
           "sawServerContent": false,
           "sawToolCall": false,
           "serverContentSample": null,
-          "elapsedMs": 156,
+          "elapsedMs": 120,
           "result": "fail",
           "message": "Probe socket closed before model output (code=1000, reason=Session ended)"
         },
@@ -88,11 +88,11 @@ npm run verify:production
           "attempt": 3,
           "wsUrl": "wss://ashanti-6exqtj2u2q-uc.a.run.app/ws",
           "connectedToGemini": true,
-          "sessionId": "session_1794488486718_n09fbi1p8",
+          "sessionId": "session_1794574906876_3xasa5mmw",
           "sawServerContent": false,
           "sawToolCall": false,
           "serverContentSample": null,
-          "elapsedMs": 160,
+          "elapsedMs": 116,
           "result": "fail",
           "message": "Probe socket closed before model output (code=1000, reason=Session ended)"
         }
